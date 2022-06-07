@@ -1,10 +1,9 @@
 ---
-title: "Aditional Resources"
-linkTitle: "Aditional Resources"
+title: "Additional Resources"
 weight: 10
 
 description: >
-  Recommended resources to expand your knowldge
+  Recommended resources to expand your knowledge
 ---
 
 
