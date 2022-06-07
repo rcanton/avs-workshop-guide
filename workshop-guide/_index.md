@@ -1,17 +1,15 @@
 ---
 title: "Workshop Guide"
 linkTitle: "Workshop Guide"
-weight: 20
-menu:
-  main:
-    weight: 20
+weight: 1
+
 ---
 
 ## **Training Environment**
 
-## **Azure Credentials**
+### **Azure Credentials**
 
-**Replace “\#” with your group number**
+> Replace “\#” with your group number
 
 Connect to [https://portal.azure.com](https://portal.azure.com) with the
 following credentials:
@@ -22,7 +20,7 @@ following credentials:
 
 ## **Environment Details**
 
-## **Jumpbox Details**
+### **Jumpbox Details**
 
 Your first task should be to create a Jumpbox in your respective Jumpbox
 Resource group.
@@ -57,7 +55,7 @@ private cloud. It's not for daily administrative activities or integration with
 other services. For more information see
 [here](https://docs.microsoft.com/en-us/azure/azure-vmware/concepts-identity)
 
-## **On-Premises VMware Lab Environment**
+## On-Premises VMware Lab Environment
 
 If you are in a group with multiple participants you will be assigned a
 participant number.
