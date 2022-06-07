@@ -1,54 +1,11 @@
 ---
-title: "Additional Resources"
-menu:
-  main:
-    weight: 40
+title: "SRM Resources"
+linkTitle: SRM
+weight: 50
 
 description: >
-  Recommended resources to expand your knowledge
+  SRM  Resources
 ---
-
-
-## AVS
-
--   [Azure VMWare Solution – Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-vmware/)
-
-## AVS Networking
-
--   [Network topology and connectivity overview in Azure - Cloud Adoption
-    Framework \| Microsoft
-    Docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)
-
--   [Azure VMWare Solution networking and interconnectivity
-    concepts](https://docs.microsoft.com/en-us/azure/azure-vmware/concepts-networking)
-
--   [Design Considerations for Networks in Azure VMware
-    Solution](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity#general-design-considerations-and-recommendations)
-
--   [Add an NSX-T segment using the Azure
-    portal](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-nsx-t-network-segment#use-azure-portal-to-add-an-nsx-t-segment)
-
--   [Use the Azure portal to create a DHCP server or
-    relay](https://docs.microsoft.com/en-us/azure/azure-vmware/configure-dhcp-azure-vmware-solution#use-the-azure-portal-to-create-a-dhcp-server-or-relay)
-
-## HCX
-
--   [VMware HCX
-    Documentation](https://docs.vmware.com/en/VMware-HCX/index.html?hWord=N4IghgNiBcIBYGMAeIC+Q)
-
--   [Introduction to HCX
-    Deployments](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-getting-started/GUID-DE0AD0AE-A6A6-4769-96ED-4D200F739A68.html)
-
--   [Introduction to HCX
-    Deployments](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-getting-started/GUID-DE0AD0AE-A6A6-4769-96ED-4D200F739A68.html)
-
--   [Deploy disaster recovery using VMware
-    HCX](https://docs.microsoft.com/en-us/azure/azure-vmware/configure-vmware-hcx)
-
--   [Install and activate VMware HCX in
-    AVS](https://docs.microsoft.com/en-us/azure/azure-vmware/install-vmware-hcx)
-
-## SRM
 
 -   [Deploy disaster recovery with VMware Site Recovery Manager - Azure VMware
     Solution \| Microsoft

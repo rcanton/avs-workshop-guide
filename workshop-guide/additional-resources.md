@@ -1,5 +1,7 @@
 ---
 title: "Additional Resources"
-weight: 10
-aliases: [/resources]
+weight: 100
+url: [additional-resources]
 ---
+
+Please visit our main [Additional Resources](/additional-resources) section for a comprehensive list of resources 
