@@ -1,6 +1,8 @@
 ---
 title: "Additional Resources"
-weight: 10
+menu:
+  main:
+    weight: 40
 
 description: >
   Recommended resources to expand your knowledge
