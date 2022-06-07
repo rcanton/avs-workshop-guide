@@ -4,7 +4,7 @@ linkTitle: HCX
 weight: 30
 
 description: >
-  HCX Networking Resources
+  HCX Resources
 ---
 
 -   [VMware HCX
