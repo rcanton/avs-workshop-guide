@@ -2,7 +2,9 @@
 title: "Workshop Guide"
 linkTitle: "Workshop Guide"
 weight: 1
-
+menu:
+  main:
+    weight: 20
 ---
 
 ## **Training Environment**
