@@ -4,4 +4,4 @@ weight: 100
 url: [additional-resources]
 ---
 
-Please visit our main [Additional Resources](/additional-resources) section for a comprehensive list of resources 
+Please visit our main [Additional Resources](/additional-resources) section for a comprehensive list of AVS content and  resources 
