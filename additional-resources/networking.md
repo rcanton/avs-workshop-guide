@@ -7,9 +7,6 @@ description: >
   AVS Networking Resources
 ---
 
-
-## AVS Networking
-
 -   [Network topology and connectivity overview in Azure - Cloud Adoption
     Framework \| Microsoft
     Docs](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/network-topology-and-connectivity)

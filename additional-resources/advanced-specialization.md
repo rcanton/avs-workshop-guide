@@ -7,7 +7,6 @@ description: >
   Differentiate your organization, demonstrate expertise, and build stronger connections with customers! 
 ---
 
-
 - [Azure Advanced Specialization (all areas)](https://aka.ms/AdvancedSpecializations)
 - [AVS Advanced Specialization](https://aka.ms/AVSAdvSpec)
 - [AVS Advanced Specialization Audit Checklist](https://aka.ms/AVSAdvSpecAudit)
