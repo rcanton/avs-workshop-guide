@@ -31,7 +31,6 @@ considerations Case studies Event Overview and Logistics:
 - Advanced Storage Considerations 
 - Advanced Networking for AVS
 
-
 ### Day 2:
 
 - Designing for Enterprise Scale 
@@ -43,4 +42,3 @@ considerations Case studies Event Overview and Logistics:
 - Migration Scenarios and Examples
 - Advanced Specialization and other Partner Programs 
 - Next Steps Who should attend?
-
