@@ -1,27 +1,27 @@
 ---
 title: "Module 1 Task 1"
-linkTitle: "Task 1: Connectivity"
+linkTitle: "Task 1: Connectivity Options"
 weight: 2
 
 description: >
-  Task 1 Connect an existing Virtual Network with AVS using AVS ExpressRoute Circuit
+  Task 1 - Connect an existing Virtual Network with AVS using AVS ExpressRoute Circuit
   
 ---
 
 
->THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB
+>**THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB**
 
 ## Section Overview
 
 In this section you will create a connection between an existing, non-AVS,
-Virtual Network in Azure and the Azure VMware Service environment. This allows
-the jumpbox virtual machine to manage key components in the VMware management
+Virtual Network in Azure and the Azure VMware Solution environment. This allows
+the jumpbox virtual machine you created to manage key components in the VMware management
 plane such as vCenter, HCX, and NSX-T. You will also be able to access Virtual
-Machines deployed in AVS and allows those VMs to access resources deployed in
+Machines deployed in AVS and allow those VMs to access resources deployed in
 the Hub or Spoke VNet’s, such as Private Endpoints and other Azure VMs or
 Services.
 
-![](6492e289dadbdb9a8d1d24410251b5ec.png)
+![](Mod1Task1Pic1.png)
 
 **Summary**: Generate a new Authorization Key in the AVS ExpressRoute settings,
 and then create a new Connection from the Virtual Network Gateway in the VNet
@@ -31,9 +31,11 @@ The diagram below shows the respective resource groups for your lab environment.
 
 You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partner XYZ would be GPSUS-XYZ1-SDDC.
 
-![](Mod1Task1.png)
+![](Mod1Task1Pic2.png)
 
-## Deployment Steps
+## Option 1: Internal ExpressRoute Setup from AVS -> VNet
+
+### Deployment Steps
 
 > **NOTE:** 
 > - Since we already have a virtual network gateway, you'll add a connection between it and  
@@ -43,104 +45,125 @@ You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partn
 > expected behavior and you can ignore the error.** 
 > 
 
+**Request an ExpressRoute authorization key**
 
-1.  Request an ExpressRoute authorization key:
+![](Mod1Task1Pic3.png)
 
-    1.1  In the Azure portal, navigate to the Azure VMware Solution private
-        cloud, then click **GPSUS-Name\#-SDDC**, then Select **Manage** \>
-        **Connectivity** \> **ExpressRoute** and then select **+ Request an
-        authorization key**.
-    ![](f6f4c38e827359e0b4d4425229fef764.png)
-    1.2  Provide a name for it and select **Create**.
-        It may take about 30 seconds to create the key. Once created, the new
-        key appears in the list of authorization keys for the private cloud.
-    ![](e62bf3f388a8af404afb380ddeed6f50.png)
+In your AVS Private Cloud:
+1. Click **Connectivity**.
+2. Click **ExpressRoute** tab.
+3. Click **+ Request an authorization key**.
 
-    1.3  Copy the authorization key and ExpressRoute ID. You'll need them to
-        complete the peering. The authorization key disappears after some time,
-        so copy it as soon as it appears.
-    ![](9937b15e4bf9036b5c0e63319f1842ef.png)
+![](Mod1Task1Pic4.png)
 
-2.  Navigate to the **virtual network gateway** - which is in resource group
-    “GPSUS-Name**\#**-Network”, where # is your lab/group number - you plan to
-    use and select **Connections** \> **+ Add**.
-    ![](2da1b77d558f10b6a5744c9365b4ac56.png)
+1. Give your authorization key a name: group-XY-key, where X is your group number, and Y is your participant number.
+2. Click **Create**. It may take about 30 seconds to create the key. Once created, the new key appears in the list of authorization keys for the private cloud.
+Copy the authorization key and ExpressRoute ID and keep it handy. You will need them to complete the peering. The authorization key disappears after some time, so copy it as soon as it appears.
 
-3.  On the **Add connection** page, provide values for the fields, and select
-    **OK**.
+![](Mod1Task1Pic5.png)
 
-    | Field                       | Value                                                       |
-    |-----------------------------|-------------------------------------------------------------|
-    | **Name**                    | Enter a name for the connection (e.g. avs1-vnet-connection) |
-    | **Connection type**         | Select **ExpressRoute**.                                    |
-    | **Redeem authorization**    | Ensure this box is selected.                                |
-    | **Virtual network gateway** | The virtual network gateway you intend to use.              |
-    | **Authorization key**       | Paste the authorization key you copied earlier.             |
-    | **Peer circuit URI**        | Paste the ExpressRoute ID you copied earlier.               |
+1. Navigate to the **Virtual Network Gateway** named **GPSUS-Name\#-Network** where # is your group number.
+2. Click **Connections**.
+3. Click **+ Add**.
 
-    ![](a5e59a23afb399e5ea1a89c952ee9771.png)
+![](Mod1Task1Pic6.png)
+
+1. Enter a Name for your connection. Use **GROUPXY-AVS** where X is your group number and Y is your participant number.
+2. For Connection type select **ExpressRoute**.
+3. Ensure the checkbox next to "Redeem authorization" is selected.
+4. Enter the **Authorization key** you copied earlier.
+5. For **Peer circuit URI** paste the ExpressRoute ID you copied earlier.
+6. Click **OK**.
 
     The connection between your ExpressRoute circuit and your Virtual Network is
     created.
 
     **Reminder**: It is expected that the connection is in **Failed State** after
     the creation, that is because another connection to the same target already
-    exists.
+    exists. Next, delete the connection.
 
-4.  Next, delete the connection. In the left-hand section, select
-    **Connections.** Select the 3 ellipses next to the connection with the
-    status **Failed,** and select **Delete**
+![](Mod1Task1Pic7.png)
 
-    ![](a10b0ff33cd930b42a0f1b048dd2fa58.png)
+1. Navigate to your Virtual Network Gateway named **GPSUS-NameX-GW where X is your group number.
+2. Click **Connections**.
+3. Select the 3 ellipses next to the connection with the status of **Failed** and select **Delete**.
 
-5.  **Access vCenter and NSX-T environment with Bastion -** Now you can validate
-    this connection by accessing vCenter in AVS from a jumpbox in Azure.
-6.  In the Azure Portal, go back to the Azure VMWare Solution
+## Option 2: ExpressRoute Global Reach Connection from AVS -> Customer's on-premises ExpressRoute
 
-7.  Select the Azure VMware Solution associated with your group:
-    GPSUS-Name\#-SDDC
+![](Mod1Task1Pic8.png)
 
-8.  In the left hand navigation, select **Identity**
+ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. [Click here for more information.](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud)
 
-9.  You will now see the **Login Credentials** for both vCenter and NSX-T
-    manager. You will need these credentials for the next steps. You do not need
-    to copy the Certificate thumbprint. Do Not Generate
-    ![](c4373fb79f1e514199a2818c9c7f1896.png)
+### Deployment Steps
 
-10.  Next, open a separate tab in your browser and access another Azure Portal.
-    Go to Resources Groups \> GPSUS-Name\#-Jumpbox
+> NOTE: There are no ExpressRoute circuits setup in this environment. These steps are informational only.
 
-11.  In the Overview pane, you will see several resources. Select the
-    GPSUS-Name\#-Jumpbox virtual machine
-     ![](b734b5526fc08133182df06e4f54766e.png)
+![](Mod1Task1Pic9.png)
 
-12.  Next, connect to the GPSUS-Name\#-jumpbox using Bastion. On the
-    GPSUS-Name\#-Jumpbox select **Connect \> Bastion**
-    ![](7f55862c6987b9cec69d8ccbcb4accab.png)
+1. In the Azure Portal search bar type **ExpressRoute**.
+2. Click **ExpressRoute circuits**.
 
-13. Enter the credentials found in [Getting Started](#getting-started)
+![](Mod1Task1Pic10.png)
 
-14. Once connected to the desktop, open a browser and enter the credentials from
-    step 4
+1. From the **ExpressRoute circuits** blade, click **Authorizations**.
+2. Give your authorization key a **Name**.
+3. Click **Save**. Copy the Authorization Key created and keep it handy.
+4. Also copy the **Resource ID** for the ExpressRoute circuit and keep it handy.
 
-    14.1.  In the Azure Portal, go to your primary AVS \> Identity
+![](Mod1Task1Pic11.png)
 
-    14.2.  Select the IP for vCenter. On the bastion hosts, open the Edge browser
-        and enter the VCenter IP’s.
+1. From your AVS Private Cloud blade, click **Connectivity**.
+2. Click **ExpressRoute Global Reach**.
+3. Click **+ Add**.
+4. In the **ExpressRoute circuit** box, paste the **Resource ID** copied in the previous step.
+5. Paste the **Authorization Key** created in the previous step.
+6. Click **Create**.
 
-    14.3.  There will be a Secure browser connection popup. Select the advanced
-        button
+## Option 3: AVS Interconnect
 
-    14.4.  Select the continue to \<IP\> address link to launch the vCenter getting
-        started screen.
+The AVS Interconnect feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds. [Click here for more information.](https://docs.microsoft.com/EN-us/azure/azure-vmware/connect-multiple-private-clouds-same-region)
 
-    14.5.  Select the Launch vSphere Client (HTML5) button to launch the login
-    ![](54cea9a66678b2eced868e21f630ee15.png)
+![](Mod1Task1Pic12.png)
 
-    14.6.  If the portal launches successfully, then the ExpressRoute connection is
-    working properly
+1. In your AVS Private Cloud blade, click **Connectivity**.
+2. Click **AVS Interconnect**.
+3. Click **+ Add**.
 
-    ![](12a93addd22df8def5b1935a46341f94.png)
+![](Mod1Task1Pic13.png)
+
+1. **Subscription** and **Location** are automatically populated based on the values of your Private Cloud, ensure these are correct.
+2. Select the **Resource group** of the other Private Cloud you would like to connect to.
+3. Select the **AVS Private cloud** you wish to connect.
+4. Ensure the checkbox next to "I confirm that the two private clouds to be connected don't contain overlapping network address space".
+5. Click **Create**.
+
+It takes a few minutes for the connection to complete. Once completed the networks found in both Private Clouds will be able to talk to each other. Feel free to perform this exercise if no one in your group has done it as there is a requirement to connect a second Private Cloud in order to perform the exercises in Module 3 (Site Recovery Manager).
+
+## Confirm access from Jumpbox
+
+You can now validate access to your Azure VMware Solution components like vCenter and NSX-T from the Jumpbox you created.
+
+![](Mod1Task1Pic14.png)
+
+1. Navigate to the Azure VMware Solution blade associated with your group: **GPSUS-Name\#-SDDC**.
+2. Click your assigned **AVS SDDC**.
+3. Click **Identity**.
+4. You will now see the **Login Credentials** for both vCenter and NSX-T. You will need these credentials for the next few steps. You do not need to copy the Certificate thumbprint.
+    > **PLEASE DO NOT GENERATE A NEW PASSWORD.**
+
+### Access AVS from Jumpbox
+
+![](Mod1Task1Pic15.png)
+
+Click **Connect** and **Bastion** from the previously created Jumpbox blade.
+
+![](Mod1Task1Pic16.png)
+
+Once connected to your Jumpbox, open a browser and enter the IP Address for AVS vCenter located in a previous step. There might be a secure browser connection message. Click the advanced button and select the option to continue. Then click on **LAUNCH VSPHERE CLIENT (HTML 5)**.
+
+![](Mod1Task1Pic17.png)
+
+If the **VMware vSphere login page launches successfully, then everything is working as expected.
 
 You’ve now confirmed that you can access AVS from a remote environment
 

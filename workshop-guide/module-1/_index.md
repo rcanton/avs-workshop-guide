@@ -21,14 +21,16 @@ Azure, and access to the internet.
 
 ![](457693efe56f5acc79bd76ef52f829ee.png)
 
-## Agenda for next 60 mins:
+## Connectivity Options for AVS
 
 This hands-on lab will show you how to configure the Networking components of an
 Azure VMware Solution for:
 
 -   Connecting Azure VNet’s to AVS over an ExpressRoute circuit **(Preconfigured)**
 
--   Peering with remote environments using Global Reach **(Preconfigured)**
+-   Peering with remote environments using Global Reach **(Not Applicable)**
+
+-   AVS Interconnect Options
 
 -   Configuring NSX-T (check DNS and configure DHCP, Segments, and Gateway) to
     manage connectivity within AVS
@@ -37,10 +39,10 @@ Azure VMware Solution for:
 |---------------------------------------------------------|------------------------|
 | Create AVS environment                                  | Preconfigured          |
 | [Connect to Azure Virtual Networks](#_Task_1:_Connect)  | Preconfigured               |
-| [Connect to On-Premises Environments](#_Task_2:_Peer)   | Preconfigured               |
+| [Connect to On-Premises Environments](#_Task_2:_Peer)   | Not Applicable               |
 | Configure DNS                                           | Preconfigured – 2 mins |
 | Configure DHCP                                          | 5 mins                 |
-| Configure Tier-1 Gateway                                | Preconfigured - 2 mins |
+| Configure Tier-1 Gateway                                | 10 mins |
 | [Configure network Segments](#_Step_4:_Create)          | 5 mins                 |
 
 The lab environment has a preconfigured Azure VMware Solution environment with an
