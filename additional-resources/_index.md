@@ -26,3 +26,4 @@ description: >
 - [AVS Hands-on Labs](https://aka.ms/AVSHOL)
 - [AVS Guided Pilot (script generating)](https://aka.ms/avsguidedpilot)
 - [AVS Micro-hack](https://aka.ms/AVSMicroHack)
+- [Husam Hilal's YouTube Channel](https://www.youtube.com/c/HusamHilal/featured)
