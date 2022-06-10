@@ -21,7 +21,7 @@ Machines deployed in AVS and allow those VMs to access resources deployed in
 the Hub or Spoke VNet’s, such as Private Endpoints and other Azure VMs or
 Services.
 
-![](Mod1Task1Pic1.png)
+![Section Overview](Mod1Task1Pic1.png)
 
 **Summary**: Generate a new Authorization Key in the AVS ExpressRoute settings,
 and then create a new Connection from the Virtual Network Gateway in the VNet
@@ -31,11 +31,11 @@ The diagram below shows the respective resource groups for your lab environment.
 
 You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partner XYZ would be GPSUS-XYZ1-SDDC.
 
-![](Mod1Task1Pic2.png)
+![Resource Groups](Mod1Task1Pic2.png)
 
 ## Option 1: Internal ExpressRoute Setup from AVS -> VNet
 
-### Deployment Steps
+### Exercise 1: Internal ExpressRoute Deployment Steps
 
 > **NOTE:** 
 > - Since we already have a virtual network gateway, you'll add a connection between it and  
@@ -45,28 +45,34 @@ You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partn
 > expected behavior and you can ignore the error.** 
 > 
 
-**Request an ExpressRoute authorization key**
+#### Step1: Request an ExpressRoute authorization key
 
-![](Mod1Task1Pic3.png)
+![ER Authorization Key](Mod1Task1Pic3.png)
 
 In your AVS Private Cloud:
 1. Click **Connectivity**.
 2. Click **ExpressRoute** tab.
 3. Click **+ Request an authorization key**.
 
-![](Mod1Task1Pic4.png)
+#### Step 2: Name Authorization Key
+
+![Request Authorization Key](Mod1Task1Pic4.png)
 
 1. Give your authorization key a name: group-XY-key, where X is your group number, and Y is your participant number.
 2. Click **Create**. It may take about 30 seconds to create the key. Once created, the new key appears in the list of authorization keys for the private cloud.
 Copy the authorization key and ExpressRoute ID and keep it handy. You will need them to complete the peering. The authorization key disappears after some time, so copy it as soon as it appears.
 
-![](Mod1Task1Pic5.png)
+#### Step 3: Create connection in VNet Gateway
+
+![VNet Gateway Connection](Mod1Task1Pic5.png)
 
 1. Navigate to the **Virtual Network Gateway** named **GPSUS-Name\#-Network** where # is your group number.
 2. Click **Connections**.
 3. Click **+ Add**.
 
-![](Mod1Task1Pic6.png)
+#### Step 4: Establish VNet Gateway Setup
+
+![VNet Gateway connection setup](Mod1Task1Pic6.png)
 
 1. Enter a Name for your connection. Use **GROUPXY-AVS** where X is your group number and Y is your participant number.
 2. For Connection type select **ExpressRoute**.
@@ -82,7 +88,9 @@ Copy the authorization key and ExpressRoute ID and keep it handy. You will need 
     the creation, that is because another connection to the same target already
     exists. Next, delete the connection.
 
-![](Mod1Task1Pic7.png)
+#### Step 5: Delete connection
+
+![Delete connection](Mod1Task1Pic7.png)
 
 1. Navigate to your Virtual Network Gateway named **GPSUS-NameX-GW where X is your group number.
 2. Click **Connections**.
