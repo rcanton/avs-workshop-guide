@@ -11,7 +11,7 @@ description: >
 
 >THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB
 
-**RC**
+**RC2**
 
 ## Section Overview
 
