@@ -11,8 +11,6 @@ description: >
 
 >THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB
 
-**RC**
-
 ## Section Overview
 
 In this section you will create a connection between an existing, non-AVS,
