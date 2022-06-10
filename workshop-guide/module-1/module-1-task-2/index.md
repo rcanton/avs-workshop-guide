@@ -1,78 +1,274 @@
 ---
 title: "Module 1 Task 2"
-linkTitle: "Task 2: Peering"
+linkTitle: "Task 2: Configure NSX-T"
 weight: 3
 
 description: >
-  Task 2: Peer remote environments with Global Reach
+  Task 2: Configure NSX-T to establish connectivity within AVS
   
 ---
 
-**THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED/NOT APPLICABLE FOR THIS LAB**
+# Section Overview:
 
-### Section Overview:
+After deploying Azure VMware Solution, you can configure an NSX-T network
+segment from NSX-T Manager or the Azure portal. Once configured, the segments
+are visible in Azure VMware Solution, NSX-T Manager, and vCenter.
 
-After you connect your AVS with the existing VNet, you'll peer it with another
-AVS lab environment. The process used in this section is the same for when
-connecting from the Azure VMware Solution to On-Premises.
+NSX-T comes pre-provisioned by default with an NSX-T Tier-0 gateway in
+Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.
+These gateways let you connect the segments (logical switches) and provide
+East-West and North-South connectivity. Machines will not have IP addresses
+until statically or dynamically assigned from a DHCP server or DHCP relay.
 
-ExpressRoute Global Reach is used to connect AVS to AVS in a different region,
-and On-premises environments to AVS. The ExpressRoute Global Reach connection is
-established between the private cloud ExpressRoute circuit and an existing
-ExpressRoute connection to your On-Premises environments.
+In this Section, you will learn how to:
 
-**Since we don’t have a real On-premises with an ExpressRoute Circuit, we will
-use another AVS environment to show how to execute the process.**
+-   Create additional NSX-T Tier-1 gateways.
 
-> **NOTE:** 
-> - Each connection requires a separate authorization. 
-> - You will be accessing **GPSUS-Name\#-SDDC**
+-   Add network segments using either NSX-T Manager or the Azure portal
 
-![](06fb486417584f7fcf97484f1fe37249.png)
+-   Configure DHCP and DNS
 
-### Deployment Steps:
+-   Deploy Test VMs in the configured segments
 
-1.  Peering with another AVS
+-   Validate connectivity
 
-    1.1.  Access your **Secondary AVS** environment **GPSUS-Name\#-SDDC** and
-        request an ExpressRoute authorization key:
+![](Mod1Task2Pic1.png)
 
-    1.2.  In the Azure portal, navigate to the Azure VMware Solution private
-        cloud. Select **Manage** \> **Connectivity** \> **ExpressRoute** and
-        then select **+ Request an authorization key**.
+## Deployment Steps
 
-    1.3.  Provide a name for it and select **Create**. It may take about 30 seconds to create the key. Once created, the new key appears in the list of authorization keys for the private cloud.
+In your Jumpbox, open a browser tab and navigate to the NSX-T URL found in the AVS Private Cloud blade in the Azure Portal. Login using the appropriate credentials noted in the Identity tab.
 
-    ![](d9d351dad4a7cb39a3023339dd004527.png)
+### Configure DNS Forwarder
 
-    1.4.  Copy the **Authorization key** and **ExpressRoute Resource ID**. You'll need
-    them to complete the peering. The authorization key disappears after some
-    time, so copy it as soon as it appears.
+>**NOTE: This task is done by default for every new AVS deployment**
 
-2.  Now that you've created an authorization key for the private cloud
-    ExpressRoute circuit, you can peer it with your On-Premises ExpressRoute
-    circuit or with another AVS environment.
+AVS DNS forwarding services run in DNS zones and enable workload VMs in the zone
+to resolve fully qualified domain names to IP addresses. Your SDDC includes
+default DNS zones for the Management Gateway and Compute Gateway. Each zone
+includes a preconfigured DNS service. Use the DNS Services tab on the DNS
+Services page to view or update properties of DNS services for the default
+zones. To create additional DNS zones or configure additional properties of DNS
+services in any zone, use the DNS Zones tab.
 
-    ![](144d87dc79f45f4f0ae2a2a83d9b88ac.png)
+The DNS Forwarder and DNS Zone are already configured for this training but
+follow the steps to see how to configure it for new environments.
 
-3.  From the **GPSUS-Name\#-SDDC environment**, under Manage, select
-    **Connectivity** \> **ExpressRoute Global Reach** \> **Add**.
+![](Mod1Task2Pic2.png)
 
-4.  Enter the **ExpressRoute ResourceID** and the **Authorization Key** from the
-    Secondary AVS created in the previous steps.
+1. Ensure the **POLICY** view is selected.
+2. Click **Networking**.
+3. Click **DNS**.
+4. Click **DNS Services**.
+5. Click the **elipsis button -> Edit** to view/edit the default DNS settings.
 
-5.  Select Create. The new connection shows in the On-Premises cloud connections
-    list.
+![](Mod1Task2Pic3.png)
 
-    ![](2fe5e22b825ac2ff7ec5ac1709a1d19d.png)
+1. Examine the settings (do not change anything) and click **CANCEL**.
 
-    5.1.  Validate access to AVS 2 vCenter server management
-    (https://[vCenter-Server-IP]) from the AVS 1 JumpBox or AVS 2 JumpBox.
-    (Refer to Task 1, step 5). Bothe JumpBox should be able to reach both AVSs.
+### Add DHCP Profile in AVS Private Cloud
 
-## References
+> **Please ensure to replace X with your group's assigned number, Y with your participant number. For participant 10 please replace XY with 20**
 
-[Peer On-Premises environments to Azure VMware Solution - Azure VMware Solution
-\| Microsoft
-Docs](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud)**
+|  **AVS NSX-T Details** |                                 |
+|-------------------------|---------------------------------|
+| **DHCP Server IP**      | 10.**XY**.50.1/30               |
+| **Segment Name**        | WEB-NET-GROUP-**XY**                         |
+| **Segment Gateway**     | 10.**XY**.51.1/24               |
+| **DHCP Range**          | 10.**XY**.51.4-10.**XY**.51.254 |
+
+
+A DHCP profile specifies a DHCP server type and configuration. You can use the
+default profile or create others as needed.
+
+A DHCP profile can be used to configure DHCP servers or DHCP relay servers
+anywhere in your SDDC network.
+
+![](Mod1Task2Pic4.png)
+
+1.  In the NSX-T Console, click **Networking**.
+2.  Click **DHCP**.
+3.  Click **ADD DHCP PROFILE**.
+
+![](Mod1Task2Pic5.png)
+
+1. Name the profile as **DHCP-Profile-GROUP-XY-AVS** for your respective group/participant.
+2. Ensure **DHCP Server** is selected.
+3. Specify the IPv4 **Server IP Address** as **10.XY.50.1/30** and optionally change the **Lease Time** or leave the default.
+4. Click **SAVE**.
+
+### Create an NSX-T T1 Logical Router
+
+NSX-T has the concept of Logical Routers (LR). These Logical Routers can perform both distributed or centralized functions. In AVS, NSX-T is deployed and configured with a default T0 Logical Router and a default T1 Logical Router.
+The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can be configured however an AVS customer chooses. AVS customers also have the option to add additional T1 LRs as they see fit.
+
+![](Mod1Task2Pic7.png)
+
+**Deployment Steps**
+
+![](Mod1Task2Pic8.png)
+
+1. Click **Networking**.
+2. Click **Tier-1 Gateways**.
+3. Click **ADD TIER-1 GATEWAY**.
+
+![](Mod1Task2Pic9.png)
+
+1. Give your T1 Gateway a Name. Use GROUP-**XY**-T1.
+2. Select the default T0 Gateway, usually TNT**-T0.
+3. Click **SAVE**. Clck **NO** to the question "Want to continue configuring this Tier-1 Gateway?".
+
+### Add the DHCP Profile to the T1 Gateway
+
+![](Mod1Task2Pic10.png)
+
+1. Click the elipsis next to your newly created T1 Gateway.
+2. Click **Edit**.
+
+![](Mod1Task2Pic11.png)
+
+1. Click **Set DHCP Configuration**.
+2. After finishing the DHCP Configuration, click to expand **Route Advertisement** and make sure all the buttons are enabled.
+
+![](Mod1Task2Pic12.png)
+
+1. Ensure **DHCP Server** is selected for Type.
+2. Select the **DHCP Server Profile** you previously created.
+3. Click **SAVE**. Click **SAVE** again to confirm changes, then click **CLOSE EDITING**.
+
+### Create Network Segment for AVS VM workloads
+
+Network segments are logical networks for use by workload VMs in the SDDC
+compute network. Azure VMware Solution supports three types of network segments:
+routed, extended, and disconnected.
+
+-   A routed network segment (the default type) has connectivity to other
+    logical networks in the SDDC and, through the SDDC firewall, to external
+    networks.
+
+-   An extended network segment extends an existing L2VPN tunnel, providing a
+    single IP address space that spans the SDDC and an On-Premises network.
+
+-   A disconnected network segment has no uplink and provides an isolated
+    network accessible only to VMs connected to it. Disconnected segments are
+    created when needed by HCX. You can also create them yourself and can
+    convert them to other segment types.
+
+![](Mod1Task2Pic13.png)
+
+1. Click **Networking**.
+2. Click **Segments**.
+3. Click **ADD SEGMENT**.
+
+![](Mod1Task2Pic14.png)
+
+1. Enter **WEB-NET-GROUP-XY** in the **Segment Name** field.
+2. Select the Tier-1 Gateway you created previously **(GROUP-XY-T1)** as the **Connected Gateway**.
+3. Select the pre-configured overlay **Transport Zone** (TNTxx-OVERLAY-TZ).
+4. In the **Subnets** column, you will enter the IP Address for the **Gateway** of the Subnet that you are creating, which is the first valid IP of the Address Space.
+    -   For Example: **10.XY.51.1/24**
+5.  Then click **SET DHCP CONFIG**.
+
+![](Mod1Task2Pic15.png)
+
+1. Ensure **Gateway DHCP Server** is selected for **DHCP Type**.
+2.  In the **DHCP Config** click the toggle button to **Enabled**.
+3.  Then in the **DHCP Ranges** field enter the range according to the IPs assigned to your group. The IP in in the same network as the Gateway defined above.
+    -   Use **10.XY.51.4-10.XY.51.254**
+4.  In the DNS Servers, enter the IP **10.1.0.192**.
+5. Click **Apply**. Then **SAVE** and finally **NO**.
+
+> **Important**
+>The IP address needs to be on a non-overlapping RFC1918 address block, which Wensures connection to the VMs on the new segment.
+
+**References**:
+
+-   [Create or Modify a Network Segment
+    (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-267DEADB-BD01-46B7-82D5-B9AA210CA9EE.html)
+
+-   [Configure Segment DHCP Properties
+    (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-F6D433BE-753E-4B44-82FF-236CEBA17F8B.html)
+
+### Create Test VMs and connect to Segment
+
+Now that we have our networks created, we can deploy virtual machines and ensure we can get an IP address from DHCP. Login to your AVS vCenter.
+
+![](Mod1Task2Pic16.png)
+
+1.  From AVS vCenter, click the **Menu** bars.
+
+![](Mod1Task2Pic17.png)
+
+Click **CREATE**.
+
+![](Mod1Task2Pic18.png)
+
+1. Name your Library **LocalLibrary-XY** where X is your group number and Y is your participant number.
+2. Click **NEXT**.
+3. Leave the defaults for **Configure content library** and for **Appy security policy**.
+
+![](Mod1Task2Pic19.png)
+
+1. For **Add storage** select the**vsanDatastore**.
+2. Click **NEXT** then **FINISH**.
+
+![](Mod1Task2Pic20.png)
+
+1. Click on your newly created Library and click **Templates**.
+2. Click **OVF & OVA Templates**.
+3. Click **ACTIONS**.
+4. Click **Import item**.
+
+![](Mod1Task2Pic21.png)
+
+Import using this URL - [Download Link](https://gpsusstorage.blob.core.windows.net/ovas-isos/workshop-vm.ova)
+
+<https://gpsusstorage.blob.core.windows.net/ovas-isos/workshop-vm.ova>
+
+This will now download and import the VM to the library
+
+![](Mod1Task2Pic22.png)
+
+Once downloaded, Right-click the VM Template \> **New VM from This Template**.
+
+![](Mod1Task2Pic23.png)
+
+1. Give the VM a name – e.g **VM1-AVS-XY**.
+2. Select the **SDDC-Datacenter**.
+3. Click **NEXT**.
+
+![](Mod1Task2Pic24.png)
+
+1. Select **Cluster-1**.
+2. Click **NEXT**.
+
+![](Mod1Task2Pic25.png)
+
+1. Review **Details** and click **NEXT**. Accept the terms and click **NEXT**.
+2. Confirm the storage as the **vsanDatastore**.
+3. Click **NEXT**.
+
+![](Mod1Task2Pic26.png)
+
+Select the segment that you created previously- **“WEB-NET-GROUP-XY”** and click **NEXT**. Then review and click **FINISH**.
+
+Once deployed, head back to VM’s and Templates and Power On this newly created VM. This VM is provided as a very lightweight Linux machine that will automatically pick up DHCP if configured. Since we have added this to the **WEB-NET-GROUP-XY** segment, it should get an IP address from this DHCP range. This usually takes few seconds. Click the “Refresh” button on vCenter toolbar.
+
+If you see an IP address here, we have successfully configured the VM and it has connected to the segment and will be accessible from the Jumpbox.
+
+We can confirm this by SSH'ing to this IP address from the Jumpbox.
+
+> Username: root
+
+> Password: AVSR0cks!
+
+**YOU MAY BE ASKED TO CHANGE THE PASSWORD OF THE ROOT USER ON THE VM, CHANGE IT TO A PASSWORD OF YOUR CHOOSING, JUST REMEMBER WHAT THAT PASSWORD IS.**
+
+Once you SSH into the VMs, enter these 2 commands to enable ICMP traffic on the VM:
+
+> iptables -A OUTPUT -p icmp -j ACCEPT
+
+> iptables -A INPUT -p icmp -j ACCEPT
+
+
+**PLEASE REPEAT THESE STEPS AND CREATE A SECOND VM CALLED 'VM2-AVS-XY'.**
 
