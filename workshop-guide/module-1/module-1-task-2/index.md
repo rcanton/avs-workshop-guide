@@ -38,9 +38,9 @@ In this Section, you will learn how to:
 
 In your Jumpbox, open a browser tab and navigate to the NSX-T URL found in the AVS Private Cloud blade in the Azure Portal. Login using the appropriate credentials noted in the Identity tab.
 
-### Configure DNS Forwarder
+### Exercise 1: Configure DNS Forwarder
 
->**NOTE: This task is done by default for every new AVS deployment**
+>NOTE: This task is done by default for every new AVS deployment
 
 AVS DNS forwarding services run in DNS zones and enable workload VMs in the zone
 to resolve fully qualified domain names to IP addresses. Your SDDC includes
@@ -65,7 +65,7 @@ follow the steps to see how to configure it for new environments.
 
 1. Examine the settings (do not change anything) and click **CANCEL**.
 
-### Add DHCP Profile in AVS Private Cloud
+### Exercise 2: Add DHCP Profile in AVS Private Cloud
 
 > **Please ensure to replace X with your group's assigned number, Y with your participant number. For participant 10 please replace XY with 20**
 
@@ -96,7 +96,7 @@ anywhere in your SDDC network.
 3. Specify the IPv4 **Server IP Address** as **10.XY.50.1/30** and optionally change the **Lease Time** or leave the default.
 4. Click **SAVE**.
 
-### Create an NSX-T T1 Logical Router
+### Exercise 3: Create an NSX-T T1 Logical Router
 
 NSX-T has the concept of Logical Routers (LR). These Logical Routers can perform both distributed or centralized functions. In AVS, NSX-T is deployed and configured with a default T0 Logical Router and a default T1 Logical Router.
 The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can be configured however an AVS customer chooses. AVS customers also have the option to add additional T1 LRs as they see fit.
@@ -117,7 +117,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the default T0 Gateway, usually TNT**-T0.
 3. Click **SAVE**. Clck **NO** to the question "Want to continue configuring this Tier-1 Gateway?".
 
-### Add the DHCP Profile to the T1 Gateway
+### Exercise 4: Add the DHCP Profile to the T1 Gateway
 
 ![](Mod1Task2Pic10.png)
 
@@ -135,7 +135,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the **DHCP Server Profile** you previously created.
 3. Click **SAVE**. Click **SAVE** again to confirm changes, then click **CLOSE EDITING**.
 
-### Create Network Segment for AVS VM workloads
+### Exercise 5: Create Network Segment for AVS VM workloads
 
 Network segments are logical networks for use by workload VMs in the SDDC
 compute network. Azure VMware Solution supports three types of network segments:
@@ -187,88 +187,4 @@ routed, extended, and disconnected.
 
 -   [Configure Segment DHCP Properties
     (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-F6D433BE-753E-4B44-82FF-236CEBA17F8B.html)
-
-### Create Test VMs and connect to Segment
-
-Now that we have our networks created, we can deploy virtual machines and ensure we can get an IP address from DHCP. Login to your AVS vCenter.
-
-![](Mod1Task2Pic16.png)
-
-1.  From AVS vCenter, click the **Menu** bars.
-
-![](Mod1Task2Pic17.png)
-
-Click **CREATE**.
-
-![](Mod1Task2Pic18.png)
-
-1. Name your Library **LocalLibrary-XY** where X is your group number and Y is your participant number.
-2. Click **NEXT**.
-3. Leave the defaults for **Configure content library** and for **Appy security policy**.
-
-![](Mod1Task2Pic19.png)
-
-1. For **Add storage** select the**vsanDatastore**.
-2. Click **NEXT** then **FINISH**.
-
-![](Mod1Task2Pic20.png)
-
-1. Click on your newly created Library and click **Templates**.
-2. Click **OVF & OVA Templates**.
-3. Click **ACTIONS**.
-4. Click **Import item**.
-
-![](Mod1Task2Pic21.png)
-
-Import using this URL - [Download Link](https://gpsusstorage.blob.core.windows.net/ovas-isos/workshop-vm.ova)
-
-<https://gpsusstorage.blob.core.windows.net/ovas-isos/workshop-vm.ova>
-
-This will now download and import the VM to the library
-
-![](Mod1Task2Pic22.png)
-
-Once downloaded, Right-click the VM Template \> **New VM from This Template**.
-
-![](Mod1Task2Pic23.png)
-
-1. Give the VM a name – e.g **VM1-AVS-XY**.
-2. Select the **SDDC-Datacenter**.
-3. Click **NEXT**.
-
-![](Mod1Task2Pic24.png)
-
-1. Select **Cluster-1**.
-2. Click **NEXT**.
-
-![](Mod1Task2Pic25.png)
-
-1. Review **Details** and click **NEXT**. Accept the terms and click **NEXT**.
-2. Confirm the storage as the **vsanDatastore**.
-3. Click **NEXT**.
-
-![](Mod1Task2Pic26.png)
-
-Select the segment that you created previously- **“WEB-NET-GROUP-XY”** and click **NEXT**. Then review and click **FINISH**.
-
-Once deployed, head back to VM’s and Templates and Power On this newly created VM. This VM is provided as a very lightweight Linux machine that will automatically pick up DHCP if configured. Since we have added this to the **WEB-NET-GROUP-XY** segment, it should get an IP address from this DHCP range. This usually takes few seconds. Click the “Refresh” button on vCenter toolbar.
-
-If you see an IP address here, we have successfully configured the VM and it has connected to the segment and will be accessible from the Jumpbox.
-
-We can confirm this by SSH'ing to this IP address from the Jumpbox.
-
-> Username: root
-
-> Password: AVSR0cks!
-
-**YOU MAY BE ASKED TO CHANGE THE PASSWORD OF THE ROOT USER ON THE VM, CHANGE IT TO A PASSWORD OF YOUR CHOOSING, JUST REMEMBER WHAT THAT PASSWORD IS.**
-
-Once you SSH into the VMs, enter these 2 commands to enable ICMP traffic on the VM:
-
-> iptables -A OUTPUT -p icmp -j ACCEPT
-
-> iptables -A INPUT -p icmp -j ACCEPT
-
-
-**PLEASE REPEAT THESE STEPS AND CREATE A SECOND VM CALLED 'VM2-AVS-XY'.**
 
