@@ -20,7 +20,7 @@ Bicep/ARM/PowerShell
 
 ![](Mod2Task1Pic2.png)
 
-1. Select the private cloud assigned to you: GPSUS-Name#-SDDC where # is your group number.
+1. Select the private cloud assigned to you: GPSUS-Name#-SDDC where # is your group number, replace "Name" with your partner name.
 
 ![](Mod2Task1Pic3.png)
 
@@ -29,4 +29,4 @@ Bicep/ARM/PowerShell
 3. Select the checkbox to agree with terms and conditions.
 4. Click **Enable and deploy**.
 
-HCX will start getting deployed in your HCX Private Cloud and it should take about 10-20 minutes to complete.
+HCX will start getting deployed in your AVS Private Cloud and it should take about 10-20 minutes to complete.
