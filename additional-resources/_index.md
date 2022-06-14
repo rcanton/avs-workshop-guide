@@ -17,8 +17,6 @@ description: >
 - [AVS Partner Learning Path (official)](https://aka.ms/AVSLearningPath)
 - [AVS Partner Assets](https://aka.ms/AVSPartnerAssets)
 - [AVS Customer Success Stories](https://aka.ms/AVSCustomerSuccess)
-- [AVS Enterprise-Scale](https://aka.ms/AVSEnterpriseScale)
-- [AVS Enterprise-Scale(GitHub repository)](https://aka.ms/AVSEnterpriseScaleRepo)
 - [AVS Projected Total Economic Impact](https://aka.ms/AVSTEIReport)
 - [AVS TechZone](https://aka.ms/AVSTechZone)
 - [AVS Overview Video Series](https://aka.ms/AVSTechOverview)
