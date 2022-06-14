@@ -4,7 +4,7 @@ linkTitle: "Task 4: Advanced NSX-T Features"
 weight: 5
 
 description: >
-  Task 3: Advanced NSX-T Features within AVS
+  Task 4: Advanced NSX-T Features within AVS
   
 ---
 
