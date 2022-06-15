@@ -11,46 +11,39 @@ description: >
 VMware HCX Connector deploys a subset of virtual appliances (automated) that
 require multiple IP segments. You’ll create four network profiles.
 
->Customer’s environments may vary and may not have separate networks.
+> Customer’s environments may vary and may not have separate networks.
 
 -   Management
-
 -   vMotion
-
 -   Replication
-
 -   Uplink
 
-These networks have been defined for you, please see below section
+These networks have been defined for you, please see below section.
 
-In the real customer environment, these will have been planned and identified
-previously, see here for the [planning
-phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-deployment#define-vmware-hcx-network-segments)
+In a real customer environment, these will have been planned and identified previously, see here for the [planning
+phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-deployment#define-vmware-hcx-network-segments).
 
-1.  Select Interconnect \> Network Profiles
+![](Mod2Task9Pic1.png)
 
-    ![](2337f18be916d512a8639018b833907f.png)
-
-2.  Create a network profile, use IP addresses allocated during the planning
-    phase. In this lab, these are in the [Getting
-    Started](#_On-Premises_HCX_details_1) section. We will create 4 separate
-    network profiles:
+1. Click **Interconnect**.
+2. Click **Network Profiles**.
+3. Click **CREATE NETWORK PROFILE**.
+Create a network profile, use IP addresses allocated during the planning phase. In this lab, these are in the [Getting Started](#_On-Premises_HCX_details_1) section. We will create 4 separate network profiles:
     -  Management
     -  vMotion
     -  Replication
     -  Uplink
 
-3.  Create Management network profiles
+![](Mod2Task9Pic2.png)
 
-    3.1. Select “Distributed Port Groups”
+1. Select **Distributed Port Groups**.
+2. Select **Management Network**.
+3. Enter the **Management Network IP** range from the table below. Remeber to replace X with your group number and Y with your participant number. Repeat the same steps for Replication, vMotion and Uplink Network profiles.
+4. Ensure the select the appropriate checkboxes depending on type of Network Profile you're creating.
 
-    3.2. Select Management Network
+> You should create a total of 4 Network Profiles.
 
-    **Replace "X" with your group number.**
-    
-    **Replace "Y" with your participant number.**
-
-    Management Network Profile
+    ### Management Network Profile
 
     | **Property**               | **Value**                       |
     |----------------------------|---------------------------------|
@@ -58,14 +51,7 @@ phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-de
     | Prefix Length              | 27                              |
     | Management Network Gateway | 10.**X**.**Y**.1      
 
-    ![](1c9f63a7f34234d5f5ca099053d5b2be.png)
-
-4.  Repeat the similar steps for “Replication”, “vMotion” and “Uplink”. Use the
-    configuration details provided below.
-
-    **Replace "Y" with your participant number.**
-
-    vMotion Network Profile
+    ### vMotion Network Profile
 
     | **Property**            | **Value**                       |
     |-------------------------|---------------------------------|
@@ -74,7 +60,7 @@ phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-de
     | vMotion Network Gateway | 10.**X**.**Y**.65                |
     | DNS                     | 1.1.1.1                         |
 
-    Replication Network Profile
+    ### Replication Network Profile
 
     | **Property**                | **Value**                         |
     |-----------------------------|-----------------------------------|
@@ -83,7 +69,7 @@ phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-de
     | Replication Network Gateway | 10.**X**.**Y**.97                   |
     | DNS                         | 1.1.1.1                           |
 
-    Uplink Network Profile
+    ### Uplink Network Profile
 
     | **Property**           | **Value**                       |
     |------------------------|---------------------------------|
@@ -91,8 +77,3 @@ phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-de
     | Prefix Length          | 28                              |
     | Uplink Network Gateway | 10.**X**.**Y**.33                 |
     | DNS                    | 1.1.1.1                         |
-
-    ![](d8a7f813510d8141d0b1277071c2e94e.png)
-
-    ![](3e5f90bff1089d4a82b711452cacee90.png)
-
