@@ -40,8 +40,8 @@ In the Azure Portal locate the Virtual Machines area.
 
 The next step, although simple, could be confusing and, commonly, a source of mistakes, these are a consequence of values to be selected and the default values shown in the portal. Please, pay special attention to the notes at the bottom of the image.
 
-- Please notice that we **PARTNER1** is just a **PLACEHOLDER** most likely for your organization's name and. Reach out to the moderators if have questions about this
-
+- Please notice that we **PARTNER1** is just a **PLACEHOLDER** most likely for your organization's name. Reach out to the moderators for guidance 
+  
 - Do not create a new resource, see the notes below about the correct resource group to choose from
   
 - Also, once you select the correct resource group the **region** will be defaulted (populated) with the right value
