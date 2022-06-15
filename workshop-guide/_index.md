@@ -11,7 +11,7 @@ menu:
 
 ### **Azure Credentials**
 
-> Replace “\#” with your group number
+> Replace “**\#**” with your group number.
 
 Connect to [https://portal.azure.com](https://portal.azure.com) with the
 following credentials:
