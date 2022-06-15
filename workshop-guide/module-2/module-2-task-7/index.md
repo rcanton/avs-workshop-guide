@@ -9,38 +9,27 @@ description: >
 
 In this section, we will integrate HCX Manager with the On-Premises vCenter
 
-1.  In **Connect your vCenter**, provide the FQDN or IP address of on-premise
-    vCenter server and the appropriate credentials, and then select
-    **Continue**., see Getting Started Section for more details
+![](Mod2Task7Pic1.png)
 
-    1.1.  In this lab, this is <https://10.X.Y.2>
+1. In **Connect your vCenter**, provide the FQDN or IP address of on-premises vCenter server and the appropriate credentials.
+- vCenter IP: <https://10.X.Y.2>
+- Username: [administrator@vsphere.local](mailto:administrator@vsphere.local)
+- Password: 0hDG3VqFyTd!
+2. Click **CONTINUE**.
 
-    1.2.  Username:
-        [administrator@vsphere.local](mailto:administrator@vsphere.local)
+![](Mod2Task7Pic2.png)
 
-    1.3.  Password: 0hDG3VqFyTd!
+1. In **Configure SSO/PSC**, provide the same vCenter IP address.
+2. Click **CONTINUE**.
 
-    ![](0a34329d4d0c9980b0d59faf964df212.png)
+![](Mod2Task7Pic3.png)
 
-2.  In **Configure SSO/PSC**, provide the same vCenter IP address, and select
-    **Continue**.
+Verify that the information entered is correct and select **RESTART**.
 
-    2.1.  https://10.X.Y.2
+The restart may take up to 10 minutes.
 
-    ![](5a9f978cbd67220a76f703daf0a27a58.png)
+![](Mod2Task7Pic4.png)
 
-3.  Verify that the information entered is correct and select **Restart**.
+After the services restart, you'll see vCenter showing as **Green** on the screen that appears. Both vCenter and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
 
-    ![](56d1acedec32851aff081d76449169e1.png)
-
-    The restart may take up to 10 minutes
-
-4.  After the services restart, you'll see vCenter showing as **Green** on the
-    screen that appears. Both vCenter and SSO must have the appropriate
-    configuration parameters, which should be the same as the previous screen.
-
-    ![](d9c3ff0b3daed977841b865b30fb338d.png)
-
-    > **Note**: It may take an additional 5-10 minutes for the HCX plugins to be
-    installed in vCenter, log back out and log back in if it does not show up
-    automatically
+> **Note**: It may take an additional 5-10 minutes for the HCX plugins to be installed in vCenter, log back out and log back in if it does not show up automatically.
