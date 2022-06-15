@@ -19,27 +19,16 @@ deployed in Task 5
 
     2.1.  Username: admin
 
-    2.2.  Password: Specified earlier in Task 4 (step 3).
+    2.2.  Password: Specified earlier in Task 4.
 
-3.  Obtain and Copy the HCX license from the AVS1 Private Cluster in Azure (See
-    Module 2, Task 2)
+![](Mod2Task6Pic1.png)
 
-    ![](6a9381a61a3b579d1892f89da6aa9808.png)
+Once logged in, In **Licensing**, enter your key for **HCX Advanced Key** and select **Activate**. This process can take several minutes.
 
-4.  Once logged in, In **Licensing**, enter your key for **HCX Advanced Key**
-    and select **Activate**. This process can take several minutes.
+![](Mod2Task6Pic2.png)
 
-    ![](b0e4b0b21e314ba7ac9429d66a648ba3.png)
+In **Datacenter Location**, provide the nearest biggest city to your location for installing the VMware HCX Manager On-Premises. Then select **Continue**. In **System Name**, modify the name to **HCX-OnPrem-XY** and click **Continue**.
 
-5.  In **Datacenter Location**, provide the nearest location for installing the
-    VMware HCX Manager On-Premises. Then select **Continue**.
+![](Mod2Task6Pic3.png)
 
-6.  In **System Name**, modify the name or accept the default and select
-    **Continue**.
-
-    ![](b87de655ec5a6836dd1c6863fb2c916f.png)
-
-7.  Click “**Yes,** **Continue”** for completing next task.
-
-    ![](d9463e719a8f57fabcdf0bbf9ec8fccf.png)
-
+Click “**YES, CONTINUE”** for completing next task. After a few minutes HCX should be successfully activated.
