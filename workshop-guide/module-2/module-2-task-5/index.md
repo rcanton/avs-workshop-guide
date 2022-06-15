@@ -10,9 +10,11 @@ description: >
 
 While the HCX installation runs, we will need to obtain a license key to activate HCX. This is available from the AVS blade in the Azure Portal.
 
-1.  Navigate to AVS, go to **Add-ons \> Migration using HCX**
+![](Mod2Task5Pic1.png)
 
-2.  Select Add to enter a key name, once added a new Activation Key will appear
+1. Click **+ Add-ons**.
+2. Click **+ Add**.
+3. Give your HCX Key a name: **HCXKey-XY**, where X is your group number and Y your participant number.
+4. Click **Yes**.
 
-    ![](4463e97db04230bd46ea52283020fd2f.png)
-
+Save the key, you will need it to activate it in your on-premises setup.
