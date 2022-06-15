@@ -8,41 +8,33 @@ description: >
 ---
 
 
-In this task, we will be creating the Site Pairing to connect the On-Premises
-HCX appliance to the AVS HCX appliance
+In this task, we will be creating the Site Pairing to connect the On-Premises HCX appliance to the AVS HCX appliance.
 
-1.  Sign into your On-Premises vCenter
+![](Mod2Task8Pic1.png)
 
-    1.1.  URL: https://10.X.Y.2
+There are 2 ways to access HCX:
+1. Through the vCenter server plug-in. Click **Menu** -> **HCX**.
+2. Through the stand-alone UI. Open a browser tab and go to your local HCX Connector IP: <https://10.X.Y.9>
+In either case, log in with your vCenter credentials:
+- Username: administrator@vsphere.local
+- Password: 0hDG3VqFyTd!
 
-    1.2.  Username:
-        administrator@vsphere.local
+> **NOTE**: If working through vCenter Server, you may see a banner item to Refresh the browser, this will load the newly installed HCX modules. If you do not see this, log out and log back into vCenter.
 
-    1.3.  Password: 0hDG3VqFyTd!
+![](Mod2Task8Pic2.png)
 
+1. Click **Site Pairing** in the left pane.
+2. Click **CONNECT TO REMOTE SITE**.
 
-2.  You may see a banner item to Refresh the browser, this will load the newly
-    installed HCX modules. If you do not see this, log out and log back into
-    vCenter
+![](Mod2Task8Pic3.png)
 
-    ![](dd7b93947a327aa2cf9b8c36b7257f3f.png)
+1. Enter credentials for your AVS vCenter found in the Azure Portal. The Remote HCX URL is found under the **Add-ons** blade and it is NOT the vCenter URL.
+2. Click **CONNECT**.
 
-3.  Under **Menu**, Select **HCX**
+> **NOTE**: Ideally the identity provided in this step should be an AD based credential with delegation instead of the cloudadmin account.
 
-4.  Navigate to Site Pairing \> Connect to Remote Site
+![](Mod2Task8Pic4.png)
 
-    ![](a431f8293cc49c568b3f58570bdf9dc2.png)
+Accept certificate warning and Import. Connection to the remote site will be established.
 
-5.  Enter remote site AVS HCX IP address and login credentials from the Azure
-    Portal. See Getting Started section for more details.
-
-    **Note** Ideally the identity provided in this step should be an AD based
-    credential with delegation instead of the cloudadmin account.
-
-    ![](c31b338dc6e4e88226af7721e2494ab0.png)
-
-6.  Accept certificate warning and Import. Connection to the remote site will be
-    established
-
-    ![](0d505a16d2c3ac2eae84d5e610b889aa.png)
 
