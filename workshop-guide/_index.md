@@ -36,7 +36,7 @@ In the Azure Portal locate the Virtual Machines area.
 1. Click **+ Create**.
 2. Select **Azure virtual machine**.
 
-{{% alert title="Important notes on the step" color="warning" %}}  
+{{% alert title="Important notes about the next step" color="warning" %}}  
 
 The next step, although simple, could be confusing and is a source of mistakes. This is due a combination of vales to be selected and the default values shown in the portal. Please pay special attention to the notes at the bottom of the image.
 
