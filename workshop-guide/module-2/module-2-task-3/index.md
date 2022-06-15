@@ -4,7 +4,7 @@ linkTitle: "Task 3: Import HCX's OVA"
 weight: 4
 
 description: >
-  Task 3 : (Preconfigured) Import the OVA file to the On-Premises vCenter
+  Task 3: Import the OVA file to the On-Premises vCenter
 ---
 
 In this step we will import the HCX appliance into the on premises vCenter.
@@ -43,19 +43,24 @@ From your Jumpbox, open a browser tab and paste the **HCX Cloud Manager IP** and
 
 From the Jumpbox, browse to the On-Premises vCenter URL, See [Getting Started](getting-started#on-premises-vmware-lab-environment) section for more information and login details.
 
-![](f0521b4c3bb4b3a7207f9b24e01a2620.png)
+![](Mod2Task3Pic6.png)
 
 1. From your on-premises vCenter click **Menu**.
 2. Click **Content Libraries**.
 
-3.  Create a new content library if one doesn’t exist
+![](Mod2Task3Pic7.png)
 
-4.  Once done, select Actions \> Import Item
+Create a new content library if one doesn’t exist by clicking the **+** sign.
 
-5.  Enter HCX URL copied from Task 3, Step 6
+![](Mod2Task3Pic8.png)
 
-    ![](aa0df7163b5265bbb9b5dffe036f1797.png)
+1. Click **ACTIONS**.
+2. Click **Import Item**.
 
-6.  Accept any prompts and actions and proceed. The HCX OVA will download to the
-    library in the background
+![](Mod2Task3Pic9.png)
+
+1. Enter the HCX URL copied in a previous step.
+2. Click **IMPORT**.
+
+Accept any prompts and actions and proceed. The HCX OVA will download to the library in the background.
 
