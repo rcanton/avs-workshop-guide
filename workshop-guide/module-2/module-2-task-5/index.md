@@ -8,8 +8,7 @@ description: >
 ---
 
 
-While the HCX installation runs, we will need to obtain a license key to
-activate HCX. This is available from the AVS environment.
+While the HCX installation runs, we will need to obtain a license key to activate HCX. This is available from the AVS blade in the Azure Portal.
 
 1.  Navigate to AVS, go to **Add-ons \> Migration using HCX**
 
