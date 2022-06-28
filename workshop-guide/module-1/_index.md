@@ -1,6 +1,5 @@
 ---
 title: "Module 1 Setup AVS Connectivity"
-linkTitle: "Module 1"
 weight: 1
 description: >
 
