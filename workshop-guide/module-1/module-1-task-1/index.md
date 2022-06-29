@@ -150,7 +150,7 @@ The AVS Interconnect feature lets you create a network connection between two or
 
 It takes a few minutes for the connection to complete. Once completed the networks found in both Private Clouds will be able to talk to each other. Feel free to perform this exercise if no one in your group has done it as there is a requirement to connect a second Private Cloud in order to perform the exercises in Module 3 (Site Recovery Manager).
 
-### Confirm access from Jumpbox
+#### Confirm access from Jumpbox
 
 You can now validate access to your Azure VMware Solution components like vCenter and NSX-T from the Jumpbox you created.
 
