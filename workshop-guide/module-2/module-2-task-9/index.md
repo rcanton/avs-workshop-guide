@@ -43,37 +43,38 @@ Create a network profile, use IP addresses allocated during the planning phase. 
 
 > You should create a total of 4 Network Profiles.
 
-    ### Management Network Profile
 
-    | **Property**               | **Value**                       |
-    |----------------------------|---------------------------------|
-    | Management Network IP      | 10.**X**.**Y**.10-10.**X**.**Y**.16 |
-    | Prefix Length              | 27                              |
-    | Management Network Gateway | 10.**X**.**Y**.1      
+### Management Network Profile
 
-    ### vMotion Network Profile
+| **Property**               | **Value**                       |
+|----------------------------|---------------------------------|
+| Management Network IP      | 10.**X**.**Y**.10-10.**X**.**Y**.16 |
+| Prefix Length              | 27                              |
+| Management Network Gateway | 10.**X**.**Y**.1      
 
-    | **Property**            | **Value**                       |
-    |-------------------------|---------------------------------|
-    | vMotion Network IP      | 10.**X**.**Y**.74-10.**X**.**Y**.77 |
-    | Prefix Length           | 27                              |
-    | vMotion Network Gateway | 10.**X**.**Y**.65                |
-    | DNS                     | 1.1.1.1                         |
+### vMotion Network Profile
 
-    ### Replication Network Profile
+| **Property**            | **Value**                       |
+|-------------------------|---------------------------------|
+| vMotion Network IP      | 10.**X**.**Y**.74-10.**X**.**Y**.77 |
+| Prefix Length           | 27                              |
+| vMotion Network Gateway | 10.**X**.**Y**.65                |
+| DNS                     | 1.1.1.1                         |
 
-    | **Property**                | **Value**                         |
-    |-----------------------------|-----------------------------------|
-    | Replication IP              | 10.**X**.**Y**.106-10.**X**.**Y**.109 |
-    | Prefix Length               | 27                                |
-    | Replication Network Gateway | 10.**X**.**Y**.97                   |
-    | DNS                         | 1.1.1.1                           |
+### Replication Network Profile
 
-    ### Uplink Network Profile
+| **Property**                | **Value**                         |
+|-----------------------------|-----------------------------------|
+| Replication IP              | 10.**X**.**Y**.106-10.**X**.**Y**.109 |
+| Prefix Length               | 27                                |
+| Replication Network Gateway | 10.**X**.**Y**.97                   |
+| DNS                         | 1.1.1.1                           |
 
-    | **Property**           | **Value**                       |
-    |------------------------|---------------------------------|
-    | Uplink Network IP      | 10.**X**.**Y**.34-10.**X**.**Y**.40 |
-    | Prefix Length          | 28                              |
-    | Uplink Network Gateway | 10.**X**.**Y**.33                 |
-    | DNS                    | 1.1.1.1                         |
+### Uplink Network Profile
+
+| **Property**           | **Value**                       |
+|------------------------|---------------------------------|
+| Uplink Network IP      | 10.**X**.**Y**.34-10.**X**.**Y**.40 |
+| Prefix Length          | 28                              |
+| Uplink Network Gateway | 10.**X**.**Y**.33                 |
+| DNS                    | 1.1.1.1                         |
