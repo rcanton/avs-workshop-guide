@@ -7,20 +7,26 @@ description: >
   Task 1 : Install VMware HCX on AVS Private Cloud
 ---
 
-In the following task, we will be installing HCX on our AVS Private Cloud. This
-is a simple process from the Add-ons section in the Azure Portal, or via
-Bicep/ARM/PowerShell
+## Enable HCX on AVS Private Cloud
+
+In the following task, we will be installing HCX on our AVS Private Cloud. This is a simple process from the Add-ons section in the Azure Portal, or via Bicep/ARM/PowerShell.
 
 > **NOTE: This task may or may not have been completed for you in your AVS environment. Only one participant per group can enable HCX in the SDDC so if you're not the first participant in the group to enable HCX, just use these instructions for reference.**
+
+### Navigate to your SDDC
 
 ![](Mod2Task1Pic1.png)
 
 1.  Navigate to the Azure Portal, search for *Azure VMware Solution* in the search bar.
 2.  Click on **Azure VMware Solution**.
 
+### Locate your AVS SDDC
+
 ![](Mod2Task1Pic2.png)
 
 1. Select the private cloud assigned to you: GPSUS-Name#-SDDC where # is your group number, replace "Name" with your partner name.
+
+### Enable HCX on your AVS Private Cloud
 
 ![](Mod2Task1Pic3.png)
 
