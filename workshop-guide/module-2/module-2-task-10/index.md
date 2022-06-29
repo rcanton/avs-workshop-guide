@@ -7,6 +7,7 @@ description: >
   Task 10: Create compute profiles
 ---
 
+## HCX Compute Profile
 
 A compute profile contains the compute, storage, and network settings that HCX
 uses on this site to deploy the interconnected dedicated virtual appliances when
@@ -14,21 +15,29 @@ service mesh is added. For more information on compute profile and its creation
 please refer to [VMware
 documentation](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BBAC979E-8899-45AD-9E01-98A132CE146E.html#:~:text=A%20Compute%20Profile%20contains%20the%20compute%2C%20storage%2C%20and,virtual%20appliances%20when%20a%20Service%20Mesh%20is%20added.).
 
+### Create Compute Profile
+
 ![](Mod2Task10Pic1.png)
 
 1. In your on-premises HCX installation, click **Interconnect**.
 2. Click **Compute Profiles**.
 3. Click **CREATE COMPUTE PROFILE**.
 
+### Name Compute Profile
+
 ![](Mod2Task10Pic2.png)
 
 1. Give your Compute Profile a Name. Suggestion: **OnPremCP-XY**, where X is your group number and Y is your participant number.
 2. Click **CONTINUE**.
 
+### Select Services for Compute Profile
+
 ![](Mod2Task10Pic3.png)
 
 1. Review the selected services. By default all the above services are selected. In a real world scenario, if a customer let's say doesn't need Network Extension, you would unselect that service here. Leave all defaults for the purpose of this workshop.
 2. Click **CONTINUE**.
+
+### Select Service Resources
 
 ![](Mod2Task10Pic4.png)
 
@@ -36,6 +45,8 @@ documentation](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BBA
 2. In this on-premises simulation, you only have one Cluster called **Cluster-1**. In a real world scenario, it's likely your customer may have more than one Cluster. HCX **Service Resources** are resources from where you'd like HCX to either migrate or protect VMs from. Select the top level **Lab-xxxxxxxx-SDDC**.
 3. Click **OK**.
 4. Click **CONTINUE**.
+
+### Select Deployment Resources
 
 ![](Mod2Task10Pic5.png)
 
@@ -45,25 +56,35 @@ documentation](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BBA
 4. **Interconnect Appliance Reservation Settings**, here you would set CPU/Memory Reservations for these appliances in your on-premises vCenter Server.
 5. Click **CONTINUE**.
 
+### Select Management Network Profile
+
 ![](Mod2Task10Pic6.png)
 
 1. Select the **Management Network Profile** you created in a previous step.
 2. Click **CONTINUE**.
+
+### Select Uplink Network Profile
 
 ![](Mod2Task10Pic7.png)
 
 1. Select the **Uplink Network Profile** you created in a previous step.
 2. Click **CONTINUE**.
 
+### Select vMotion Network Profile
+
 ![](Mod2Task10Pic8.png)
 
 1. Select the **vMotion Network Profile** you created in a previous step.
 2. Click **CONTINUE**.
 
+### Select vSphere Replication Network Profile
+
 ![](Mod2Task10Pic9.png)
 
 1. Select the **vSphere Replication Network Profile** you created in a previous step.
 2. Click **CONTINUE**.
+
+### Select Network Containers
 
 ![](Mod2Task10Pic10.png)
 
@@ -72,10 +93,14 @@ documentation](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BBA
 3. Click **CLOSE**.
 4. Click **CONTINUE**.
 
+### Review Connection Rules
+
 ![](Mod2Task10Pic11.png)
 
 1. Review the connection rules.
 2. Click **CONTINUE**.
+
+### Finish creation of Compute Profile
 
 ![](Mod2Task10Pic12.png)
 
