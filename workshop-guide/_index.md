@@ -38,9 +38,9 @@ In the Azure Portal locate the Virtual Machines area.
 
 {{% alert title="Important notes about the next step" color="warning" %}}  
 
-The next step, although simple, could be confusing and, commonly, a source of mistakes, these are a consequence of values to be selected and the default values shown in the portal. Please, pay special attention to the notes at the bottom of the image.
+The next step, could be confusing and often, a source of mistakes. Please, pay special attention to the notes at the bottom of the image.
 
-- Please notice that we **PARTNER1** is just a **PLACEHOLDER** most likely for your organization's name. Reach out to the moderators for guidance 
+- Please notice that **PARTNER1** is just a **PLACEHOLDER** most likely for your organization's name. Reach out to the moderators for guidance 
   
 - Do not create a new resource, see the notes below about the correct resource group to choose from
   
