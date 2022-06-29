@@ -10,66 +10,78 @@ description: >
 
 A compute profile contains the compute, storage, and network settings that HCX
 uses on this site to deploy the interconnected dedicated virtual appliances when
-service mesh is added. For more information on compute profile and creating
+service mesh is added. For more information on compute profile and its creation
 please refer to [VMware
 documentation](https://docs.vmware.com/en/VMware-HCX/4.2/hcx-user-guide/GUID-BBAC979E-8899-45AD-9E01-98A132CE146E.html#:~:text=A%20Compute%20Profile%20contains%20the%20compute%2C%20storage%2C%20and,virtual%20appliances%20when%20a%20Service%20Mesh%20is%20added.).
 
-1.  Under **Infrastructure**, select **Interconnect** \> **Compute Profiles** \>
-    **Create Compute Profile**.
+![](Mod2Task10Pic1.png)
 
-    ![](14bf1d3e53de1e67901370ed152929cc.png)
+1. In your on-premises HCX installation, click **Interconnect**.
+2. Click **Compute Profiles**.
+3. Click **CREATE COMPUTE PROFILE**.
 
-2.  Enter a name for the profile and select **Continue**.
+![](Mod2Task10Pic2.png)
 
-3.  Review the selected services, by default all the below are selected.
-    **Continue** to go to the next page
+1. Give your Compute Profile a Name. Suggestion: **OnPremCP-XY**, where X is your group number and Y is your participant number.
+2. Click **CONTINUE**.
 
-    ![](83993bf3b6b6cdc4568522f54795d197.png)
+![](Mod2Task10Pic3.png)
 
-4.  In **Select Service Resources**, select one or more service resources
-    (clusters) to enable the selected VMware HCX services.
+1. Review the selected services. By default all the above services are selected. In a real world scenario, if a customer let's say doesn't need Network Extension, you would unselect that service here. Leave all defaults for the purpose of this workshop.
+2. Click **CONTINUE**.
 
-5.  When you see the clusters in your On-Premises datacenter, select
-    **Continue**.
+![](Mod2Task10Pic4.png)
 
-    ![](4bfee349bbb901385987cda83f5b86cd.png)
+1. Click the arrow next to **Select Resource(s)**.
+2. In this on-premises simulation, you only have one Cluster called **Cluster-1**. In a real world scenario, it's likely your customer may have more than one Cluster. HCX **Service Resources** are resources from where you'd like HCX to either migrate or protect VMs from. Select the top level **Lab-xxxxxxxx-SDDC**.
+3. Click **OK**.
+4. Click **CONTINUE**.
 
-6.  From **Select Datastore**, select the datastore storage resource for
-    deploying the VMware HCX Interconnect appliances. Then select **Continue**.
+![](Mod2Task10Pic5.png)
 
-    **Note**: Best practice would be to set resource reservations here as per
-    requirements
+1. Click the arrow next to **Select Resource(s)**. Here you will be selecting the **Deployment Resource**, which is where the additional HCX appliances needing to be installed will be placed in the on-premises environment. Select **Cluster-1**.
+2. For **Select Datastore** click and select the **LabDatastore** that exists in your simulated on-premises environment. This will be the on-premises Datastore the additional HCX appliances will be placed in.
+3. (Optional) click to **Select Folder** in the on-premises vCenter Server where to place the HCX appliances.
+4. **Interconnect Appliance Reservation Settings**, here you would set CPU/Memory Reservations for these appliances in your on-premises vCenter Server.
+5. Click **CONTINUE**.
 
-    ![](9c010cd9b5983134d1e1d4b5d403a438.png)
+![](Mod2Task10Pic6.png)
 
-7.  From **Select Management Network Profile**, select the management network
-    profile that you created in previous steps. Then select **Continue**.
+1. Select the **Management Network Profile** you created in a previous step.
+2. Click **CONTINUE**.
 
-    ![](4fd686bec346e45231950c9be11180f4.png)
+![](Mod2Task10Pic7.png)
 
-8.  From **Select Uplink Network Profile**, select the uplink network profile
-    you created in the previous procedure. Then select **Continue**.
+1. Select the **Uplink Network Profile** you created in a previous step.
+2. Click **CONTINUE**.
 
-    ![](0f27f76b88758dd05bb0e59d0a183972.png)
+![](Mod2Task10Pic8.png)
 
-9.  From **Select vMotion Network Profile**, select the vMotion network profile
-    that you created in previous steps. Then select **Continue**.
+1. Select the **vMotion Network Profile** you created in a previous step.
+2. Click **CONTINUE**.
 
-    ![](5b7770225f6cdb4e876b689a2cb7a983.png)
+![](Mod2Task10Pic9.png)
 
-10.  From **Select vSphere Replication Network Profile**, select the replication
-    network profile that you created in previous steps. Then select
-    **Continue**.
+1. Select the **vSphere Replication Network Profile** you created in a previous step.
+2. Click **CONTINUE**.
 
-   ![](9b1d33857a6497a0ebd98ebd19a44de2.png)
+![](Mod2Task10Pic10.png)
 
-   ![](71f42562d499887699ecf479fddb1082.png)
+1. Click the arrow next to **Select Network Containers**.
+2. Select the virtual distributed switch you'd like to make eligible for Network Extension.
+3. Click **CLOSE**.
+4. Click **CONTINUE**.
 
+![](Mod2Task10Pic11.png)
 
-11.  Review the connection rules and select **Continue**.
+1. Review the connection rules.
+2. Click **CONTINUE**.
 
-   ![](fc1f92b27f97eac6510cc90d5bfbb535.png)
+![](Mod2Task10Pic12.png)
 
-12.  Select **Finish** to create the compute profile.
+Click **FINISH** to create the compute profile.
 
-   ![](67209a050ee1d372864b7965d80d1995.png)
+![](Mod2Task10Pic13.png)
+
+Your **Compute Profile** is created successfully.
+
