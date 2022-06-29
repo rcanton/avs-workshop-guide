@@ -1,6 +1,6 @@
 ---
-title: "Module 2 Setup AVS Connectivity"
-linkTitle: "Module 2"
+title: "Module 2 HCX for VM Migration"
+linkTitle: "Module 2 - HCX for VM Migration"
 weight: 1
 
 description: >

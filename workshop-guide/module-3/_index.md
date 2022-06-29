@@ -1,6 +1,6 @@
 ---
-title: "Module 3 SRM"
-linkTitle: "Module 3"
+title: "Module 3 - VMware Site Recovery Manager (SRM)"
+linkTitle: "Module 3 - Site Recovery Manager (SRM)"
 weight: 1
 
 description: >

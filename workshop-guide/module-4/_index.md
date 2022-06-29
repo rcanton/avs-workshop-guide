@@ -1,6 +1,6 @@
 ---
-title: "Module 4 Secure Hub"
-linkTitle: "Module 4"
+title: "Module 4 - Secure Hub"
+linkTitle: "Module 4 - Create a VWAN Hub"
 weight: 1
 
 description: >
