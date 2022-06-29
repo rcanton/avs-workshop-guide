@@ -4,14 +4,15 @@ linkTitle: "Task 1: Connectivity Options"
 weight: 2
 
 description: >
-  Task 1 - Connect an existing Virtual Network with AVS using AVS ExpressRoute Circuit
+  Task 1 - AVS Connectivity Options
   
 ---
 
+## AVS Connectivity Options
 
->THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB
+> **THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB.**
 
-## Section Overview
+### Section Overview
 
 In this section you will create a connection between an existing, non-AVS,
 Virtual Network in Azure and the Azure VMware Solution environment. This allows
@@ -33,17 +34,11 @@ You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partn
 
 ![Resource Groups](Mod1Task1Pic2.png)
 
-## Option 1: Internal ExpressRoute Setup from AVS -> VNet
-
-### Exercise 1: Internal ExpressRoute Deployment Steps
+### Option 1: Internal ExpressRoute Setup from AVS -> VNet
 
 > **NOTE:** 
-> - Since we already have a virtual network gateway, you'll add a connection between it and  
->  your Azure VMware Solution private cloud.
-> - **The last step of this section is expected to fail, the Connection will be created but it 
-> will be in Failed state because another Connection to the same target already exists. This is 
-> expected behavior and you can ignore the error.** 
-> 
+> - Since we already have a virtual network gateway, you'll add a connection between it and your Azure VMware Solution private cloud.
+> - **The last step of this section is expected to fail, the Connection will be created but it will be in Failed state because another Connection to the same target already exists. This is expected behavior and you can ignore the error.** 
 
 #### Step1: Request an ExpressRoute authorization key
 
@@ -96,13 +91,13 @@ Copy the authorization key and ExpressRoute ID and keep it handy. You will need 
 2. Click **Connections**.
 3. Select the 3 ellipses next to the connection with the status of **Failed** and select **Delete**.
 
-## Option 2: ExpressRoute Global Reach Connection from AVS -> Customer's on-premises ExpressRoute
+### Option 2: ExpressRoute Global Reach Connection from AVS -> Customer's on-premises ExpressRoute
 
 ![](Mod1Task1Pic8.png)
 
 ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. The ExpressRoute Global Reach connection is established between the private cloud ExpressRoute circuit and an existing ExpressRoute connection to your on-premises environments. [Click here for more information.](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-expressroute-global-reach-private-cloud)
 
-### Deployment Steps
+#### ExpressRoute Circuits in Azure Portal
 
 > NOTE: There are no ExpressRoute circuits setup in this environment. These steps are informational only.
 
@@ -111,12 +106,16 @@ ExpressRoute Global Reach connects your on-premises environment to your Azure VM
 1. In the Azure Portal search bar type **ExpressRoute**.
 2. Click **ExpressRoute circuits**.
 
+#### Create ExpressRoute Authorization
+
 ![](Mod1Task1Pic10.png)
 
 1. From the **ExpressRoute circuits** blade, click **Authorizations**.
 2. Give your authorization key a **Name**.
 3. Click **Save**. Copy the Authorization Key created and keep it handy.
 4. Also copy the **Resource ID** for the ExpressRoute circuit and keep it handy.
+
+#### Create Global Reach Connection in AVS
 
 ![](Mod1Task1Pic11.png)
 
@@ -127,15 +126,19 @@ ExpressRoute Global Reach connects your on-premises environment to your Azure VM
 5. Paste the **Authorization Key** created in the previous step.
 6. Click **Create**.
 
-## Option 3: AVS Interconnect
+### Option 3: AVS Interconnect
 
 The AVS Interconnect feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds. [Click here for more information.](https://docs.microsoft.com/EN-us/azure/azure-vmware/connect-multiple-private-clouds-same-region)
+
+#### Establish AVS Interconnect in your AVS SDDC
 
 ![](Mod1Task1Pic12.png)
 
 1. In your AVS Private Cloud blade, click **Connectivity**.
 2. Click **AVS Interconnect**.
 3. Click **+ Add**.
+
+#### Add connection to another private cloud
 
 ![](Mod1Task1Pic13.png)
 
@@ -147,9 +150,11 @@ The AVS Interconnect feature lets you create a network connection between two or
 
 It takes a few minutes for the connection to complete. Once completed the networks found in both Private Clouds will be able to talk to each other. Feel free to perform this exercise if no one in your group has done it as there is a requirement to connect a second Private Cloud in order to perform the exercises in Module 3 (Site Recovery Manager).
 
-## Confirm access from Jumpbox
+### Confirm access from Jumpbox
 
 You can now validate access to your Azure VMware Solution components like vCenter and NSX-T from the Jumpbox you created.
+
+#### Obtain AVS Login Credentials
 
 ![](Mod1Task1Pic14.png)
 
@@ -159,7 +164,7 @@ You can now validate access to your Azure VMware Solution components like vCente
 4. You will now see the **Login Credentials** for both vCenter and NSX-T. You will need these credentials for the next few steps. You do not need to copy the Certificate thumbprint.
     > **PLEASE DO NOT GENERATE A NEW PASSWORD.**
 
-### Access AVS from Jumpbox
+#### Access AVS from Jumpbox
 
 ![](Mod1Task1Pic15.png)
 
