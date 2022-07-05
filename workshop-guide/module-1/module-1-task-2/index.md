@@ -199,4 +199,3 @@ routed, extended, and disconnected.
 
 -   [Configure Segment DHCP Properties
     (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-F6D433BE-753E-4B44-82FF-236CEBA17F8B.html)
-
