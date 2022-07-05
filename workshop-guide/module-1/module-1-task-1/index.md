@@ -8,11 +8,11 @@ description: >
   
 ---
 
-## AVS Connectivity Options
+## **AVS Connectivity Options**
 
 > **THIS IS FOR REFERENCE ONLY AS IT HAS BEEN PRECONFIGURED FOR THIS LAB.**
 
-### Section Overview
+### **Section Overview**
 
 In this section you will create a connection between an existing, non-AVS,
 Virtual Network in Azure and the Azure VMware Solution environment. This allows
@@ -34,7 +34,7 @@ You will replace Name with Partner Name, for example: GPSUS-Name1-SDDC for partn
 
 ![Resource Groups](Mod1Task1Pic2.png)
 
-### Option 1: Internal ExpressRoute Setup from AVS -> VNet
+### **Option 1: Internal ExpressRoute Setup from AVS -> VNet**
 
 > **NOTE:** 
 > - Since we already have a virtual network gateway, you'll add a connection between it and your Azure VMware Solution private cloud.
@@ -91,7 +91,7 @@ Copy the authorization key and ExpressRoute ID and keep it handy. You will need 
 2. Click **Connections**.
 3. Select the 3 ellipses next to the connection with the status of **Failed** and select **Delete**.
 
-### Option 2: ExpressRoute Global Reach Connection from AVS -> Customer's on-premises ExpressRoute
+### **Option 2: ExpressRoute Global Reach Connection from AVS -> Customer's on-premises ExpressRoute**
 
 ![](Mod1Task1Pic8.png)
 
@@ -126,7 +126,7 @@ ExpressRoute Global Reach connects your on-premises environment to your Azure VM
 5. Paste the **Authorization Key** created in the previous step.
 6. Click **Create**.
 
-### Option 3: AVS Interconnect
+### **Option 3: AVS Interconnect**
 
 The AVS Interconnect feature lets you create a network connection between two or more Azure VMware Solution private clouds located in the same region. It creates a routing link between the management and workload networks of the private clouds to enable network communication between the clouds. [Click here for more information.](https://docs.microsoft.com/EN-us/azure/azure-vmware/connect-multiple-private-clouds-same-region)
 
@@ -150,7 +150,7 @@ The AVS Interconnect feature lets you create a network connection between two or
 
 It takes a few minutes for the connection to complete. Once completed the networks found in both Private Clouds will be able to talk to each other. Feel free to perform this exercise if no one in your group has done it as there is a requirement to connect a second Private Cloud in order to perform the exercises in Module 3 (Site Recovery Manager).
 
-### Confirm access from Jumpbox
+### **Confirm access from Jumpbox**
 
 You can now validate access to your Azure VMware Solution components like vCenter and NSX-T from the Jumpbox you created.
 
@@ -180,7 +180,7 @@ If the **VMware vSphere login page launches successfully, then everything is wor
 
 You’ve now confirmed that you can access AVS from a remote environment
 
-## References
+## **References**
 
 [Tutorial - Configure networking for your VMware private cloud in Azure - Azure
 VMware Solution \| Microsoft
