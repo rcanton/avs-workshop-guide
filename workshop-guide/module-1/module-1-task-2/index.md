@@ -8,7 +8,7 @@ description: >
   
 ---
 
-## NSX-T on AVS
+## **NSX-T on AVS**
 
 After deploying Azure VMware Solution, you can configure an NSX-T network
 segment from NSX-T Manager or the Azure portal. Once configured, the segments
@@ -36,7 +36,7 @@ In this Section, you will learn how to:
 
 In your Jumpbox, open a browser tab and navigate to the NSX-T URL found in the AVS Private Cloud blade in the Azure Portal. Login using the appropriate credentials noted in the Identity tab.
 
-### Exercise 1: Configure DNS Forwarder
+### **Exercise 1: Configure DNS Forwarder**
 
 >NOTE: This task is done by default for every new AVS deployment
 
@@ -63,7 +63,7 @@ follow the steps to see how to configure it for new environments.
 
 1. Examine the settings (do not change anything) and click **CANCEL**.
 
-### Exercise 2: Add DHCP Profile in AVS Private Cloud
+### **Exercise 2: Add DHCP Profile in AVS Private Cloud**
 
 > **Please ensure to replace X with your group's assigned number, Y with your participant number. For participant 10 please replace XY with 20**
 
@@ -98,7 +98,7 @@ anywhere in your SDDC network.
 3. Specify the IPv4 **Server IP Address** as **10.XY.50.1/30** and optionally change the **Lease Time** or leave the default.
 4. Click **SAVE**.
 
-### Exercise 3: Create an NSX-T T1 Logical Router
+### **Exercise 3: Create an NSX-T T1 Logical Router**
 
 NSX-T has the concept of Logical Routers (LR). These Logical Routers can perform both distributed or centralized functions. In AVS, NSX-T is deployed and configured with a default T0 Logical Router and a default T1 Logical Router.
 The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can be configured however an AVS customer chooses. AVS customers also have the option to add additional T1 LRs as they see fit.
@@ -121,7 +121,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the default T0 Gateway, usually TNT**-T0.
 3. Click **SAVE**. Clck **NO** to the question "Want to continue configuring this Tier-1 Gateway?".
 
-### Exercise 4: Add the DHCP Profile to the T1 Gateway
+### **Exercise 4: Add the DHCP Profile to the T1 Gateway**
 
 ![](Mod1Task2Pic10.png)
 
@@ -141,7 +141,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the **DHCP Server Profile** you previously created.
 3. Click **SAVE**. Click **SAVE** again to confirm changes, then click **CLOSE EDITING**.
 
-### Exercise 5: Create Network Segment for AVS VM workloads
+### **Exercise 5: Create Network Segment for AVS VM workloads**
 
 Network segments are logical networks for use by workload VMs in the SDDC
 compute network. Azure VMware Solution supports three types of network segments:
