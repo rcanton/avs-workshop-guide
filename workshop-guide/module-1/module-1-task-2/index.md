@@ -36,7 +36,7 @@ In this Section, you will learn how to:
 
 In your Jumpbox, open a browser tab and navigate to the NSX-T URL found in the AVS Private Cloud blade in the Azure Portal. Login using the appropriate credentials noted in the Identity tab.
 
-### Configure DNS Forwarder
+### Exercise 1: Configure DNS Forwarder
 
 >NOTE: This task is done by default for every new AVS deployment
 
@@ -63,7 +63,7 @@ follow the steps to see how to configure it for new environments.
 
 1. Examine the settings (do not change anything) and click **CANCEL**.
 
-### Add DHCP Profile in AVS Private Cloud
+### Exercise 2: Add DHCP Profile in AVS Private Cloud
 
 > **Please ensure to replace X with your group's assigned number, Y with your participant number. For participant 10 please replace XY with 20**
 
@@ -81,7 +81,7 @@ default profile or create others as needed.
 A DHCP profile can be used to configure DHCP servers or DHCP relay servers
 anywhere in your SDDC network.
 
-#### Add DHCP Profile
+#### Step 1: Add DHCP Profile
 
 ![](Mod1Task2Pic4.png)
 
@@ -89,7 +89,7 @@ anywhere in your SDDC network.
 2.  Click **DHCP**.
 3.  Click **ADD DHCP PROFILE**.
 
-#### Configure DHCP Profile
+#### Step 2: Configure DHCP Profile
 
 ![](Mod1Task2Pic5.png)
 
@@ -98,14 +98,14 @@ anywhere in your SDDC network.
 3. Specify the IPv4 **Server IP Address** as **10.XY.50.1/30** and optionally change the **Lease Time** or leave the default.
 4. Click **SAVE**.
 
-### Create an NSX-T T1 Logical Router
+### Exercise 3: Create an NSX-T T1 Logical Router
 
 NSX-T has the concept of Logical Routers (LR). These Logical Routers can perform both distributed or centralized functions. In AVS, NSX-T is deployed and configured with a default T0 Logical Router and a default T1 Logical Router.
 The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can be configured however an AVS customer chooses. AVS customers also have the option to add additional T1 LRs as they see fit.
 
 ![](Mod1Task2Pic7.png)
 
-#### Add Tier-1 Gateway
+#### Step 1: Add Tier-1 Gateway
 
 ![](Mod1Task2Pic8.png)
 
@@ -113,7 +113,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Click **Tier-1 Gateways**.
 3. Click **ADD TIER-1 GATEWAY**.
 
-#### Configure Tier-1 Gateway
+#### Step 2: Configure Tier-1 Gateway
 
 ![](Mod1Task2Pic9.png)
 
@@ -121,14 +121,14 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the default T0 Gateway, usually TNT**-T0.
 3. Click **SAVE**. Clck **NO** to the question "Want to continue configuring this Tier-1 Gateway?".
 
-### Add the DHCP Profile to the T1 Gateway
+### Exercise 4: Add the DHCP Profile to the T1 Gateway
 
 ![](Mod1Task2Pic10.png)
 
 1. Click the elipsis next to your newly created T1 Gateway.
 2. Click **Edit**.
 
-#### Set DHCP Configuration to Tier-1 Gateway
+#### Step 1: Set DHCP Configuration to Tier-1 Gateway
 
 ![](Mod1Task2Pic11.png)
 
@@ -141,7 +141,7 @@ The T0 LR in AVS cannot be manipulated by AVS customers, however the T1 LR can b
 2. Select the **DHCP Server Profile** you previously created.
 3. Click **SAVE**. Click **SAVE** again to confirm changes, then click **CLOSE EDITING**.
 
-### Create Network Segment for AVS VM workloads
+### Exercise 5: Create Network Segment for AVS VM workloads
 
 Network segments are logical networks for use by workload VMs in the SDDC
 compute network. Azure VMware Solution supports three types of network segments:
@@ -159,7 +159,7 @@ routed, extended, and disconnected.
     created when needed by HCX. You can also create them yourself and can
     convert them to other segment types.
 
-#### Add Network Segment
+#### Step 1: Add Network Segment
 
 ![](Mod1Task2Pic13.png)
 
@@ -167,7 +167,7 @@ routed, extended, and disconnected.
 2. Click **Segments**.
 3. Click **ADD SEGMENT**.
 
-#### Configure Network Segment
+#### Step 2: Configure Network Segment
 
 ![](Mod1Task2Pic14.png)
 
@@ -178,7 +178,7 @@ routed, extended, and disconnected.
     -   For Example: **10.XY.51.1/24**
 5.  Then click **SET DHCP CONFIG**.
 
-#### Set DHCP Configuration on Network Segment
+#### Step 3: Set DHCP Configuration on Network Segment
 
 ![](Mod1Task2Pic15.png)
 
@@ -192,7 +192,7 @@ routed, extended, and disconnected.
 > **Important**
 >The IP address needs to be on a non-overlapping RFC1918 address block, which ensures connection to the VMs on the new segment.
 
-**References**:
+## **References**:
 
 -   [Create or Modify a Network Segment
     (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-267DEADB-BD01-46B7-82D5-B9AA210CA9EE.html)
