@@ -192,7 +192,7 @@ routed, extended, and disconnected.
 > **Important**
 >The IP address needs to be on a non-overlapping RFC1918 address block, which ensures connection to the VMs on the new segment.
 
-## **References**:
+## **References**
 
 -   [Create or Modify a Network Segment
     (vmware.com)](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vmc-aws.networking-security/GUID-267DEADB-BD01-46B7-82D5-B9AA210CA9EE.html)
