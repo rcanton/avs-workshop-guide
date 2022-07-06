@@ -7,11 +7,11 @@ description: >
   Task 2: Download the HCX OVA to On-Premises vCenter
 ---
 
-## Download HCX OVA for Deployment of HCX on-premises
+## **Exercise 1: Download HCX OVA for Deployment of HCX on-premises**
 
 The next step is to download HCX onto our On-Premises VMware environment, this will allow us to setup the connectivity to AVS and allow us to migrate. The HCX appliance is provided by VMware and has to be requested from within the AVS HCX Manager.
 
-### Locate AVS SDDC Identity Information
+### Step 1: Locate AVS SDDC Identity Information
 
 ![](Mod2Task2Pic1.png)
 
@@ -23,7 +23,7 @@ The next step is to download HCX onto our On-Premises VMware environment, this w
 
 > Navigate to the Azure portal and connect to your Jumpbox.
 
-### Connect to your Azure Jumpbox
+### Step 2: Connect to your Azure Jumpbox
 
 ![](Mod2Task2Pic2.png)
 
@@ -32,7 +32,7 @@ The next step is to download HCX onto our On-Premises VMware environment, this w
 
 > Enter the credentials you created for your Jumpbox.
 
-### Locate HCX Cloud Manager IP
+### Step 3: Locate HCX Cloud Manager IP
 
 ![](Mod2Task2Pic3.png)
 
@@ -40,7 +40,7 @@ The next step is to download HCX onto our On-Premises VMware environment, this w
 2. Click **Migration using HCX**.
 3. Copy the **HCX Cloud Manager IP** URL, open a new browser tab and paste it, and enter the cloudadmin credentials obtained above.
 
-### Request HCX OVA Download Link
+### Step 4: Request HCX OVA Download Link
 
 ![](Mod2Task2Pic4.png)
 
