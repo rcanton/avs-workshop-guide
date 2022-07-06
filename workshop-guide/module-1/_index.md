@@ -35,16 +35,6 @@ Azure VMware Solution for:
 -   Configuring NSX-T (check DNS and configure DHCP, Segments, and Gateway) to
     manage connectivity within AVS
 
-| **Action Plan**                                         | **Expected Time**      |
-|---------------------------------------------------------|------------------------|
-| Create AVS environment                                  | Preconfigured          |
-| [Connect to Azure Virtual Networks](#_Task_1:_Connect)  | Preconfigured               |
-| [Connect to On-Premises Environments](#_Task_2:_Peer)   | Not Applicable               |
-| Configure DNS                                           | Preconfigured – 2 mins |
-| Configure DHCP                                          | 5 mins                 |
-| Configure Tier-1 Gateway                                | 10 mins |
-| [Configure network Segments](#_Step_4:_Create)          | 5 mins                 |
-
 The lab environment has a preconfigured Azure VMware Solution environment with an
 Express Route circuit. A nested or embedded VMware environment is configured to simulate
 an On-Premises environment **(PLEASE DO NOT TOUCH)**. Both environments are accessible through Bastions
@@ -55,4 +45,8 @@ After this lab is complete, you will have built out this scenario below
 1.  ExpressRoute, for connectivity between Azure VMware Solution and Azure Virtual Networks.
 
 2.  Configure NSX-T to establish connectivity within the AVS environment.
+
+3. Creation of Test VMs to attach to your NSX-T Network Segments.
+
+4. Explore some advanced NSX-T features like tagging, creation of groups, Distributed Firewall Features.
 
