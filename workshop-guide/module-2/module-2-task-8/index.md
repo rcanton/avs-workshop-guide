@@ -7,8 +7,13 @@ description: >
   Task 8: Create Site Pairing from On-premises HCX to AVS HCX
 ---
 
+## **HCX Site Pairing**
 
 In this task, we will be creating the Site Pairing to connect the On-Premises HCX appliance to the AVS HCX appliance.
+
+### **Exercise 1: Pair On-Premises HCX to AVS HCX**
+
+#### Step 1: Access On-Premises HCX
 
 ![](Mod2Task8Pic1.png)
 
@@ -21,10 +26,14 @@ In either case, log in with your vCenter credentials:
 
 > **NOTE**: If working through vCenter Server, you may see a banner item to Refresh the browser, this will load the newly installed HCX modules. If you do not see this, log out and log back into vCenter.
 
+#### Step 2: Connect to Remote Site
+
 ![](Mod2Task8Pic2.png)
 
 1. Click **Site Pairing** in the left pane.
 2. Click **CONNECT TO REMOTE SITE**.
+
+#### Step 3: Enter Remote (AVS) HCX Information
 
 ![](Mod2Task8Pic3.png)
 
