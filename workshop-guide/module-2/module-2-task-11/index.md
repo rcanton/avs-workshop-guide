@@ -1,76 +1,102 @@
 ---
 title: "Module 2 Task 11"
-linkTitle: "Task 11: Service Mesh"
+linkTitle: "HCX Service Mesh Creation"
 weight: 12
 
 description: >
   Task 11: Create a service mesh
 ---
 
+## **HCX Service Mesh Creation**
 
+An HCX Service Mesh is the effective HCX services configuration for a source and destination site. A Service Mesh can be added t oa connected Site Pair that has a valid Compute Profile create on both of the sites.
 
-In this section, we will be creating the service mesh
+Adding a Service Mesh initiates the deployment of HCX Interconnect virtual appliances on both sites. An interconnect Service Mesh is always created at the source site. 
+
+More information can be found inf VMware's Official Documentation, [Creating a Service Mesh.](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-46AED982-8ED2-4CB1-807E-FEFD18FAC0DD.html)
+
+### **Exercise 1: Create HCX Service Mesh**
 
 **Important Note -** Make sure port UDP 4500 is open between your
 On-Premises VMware HCX Connector 'uplink' network profile addresses and the
 Azure VMware Solution HCX Cloud 'uplink' network profile addresses.
 
-1.  Create a Service Mesh
+#### Step 1: Create Service Mesh
 
-    ![](a6e7c6bd61e635bdb676045c8b3c3eb8.png)
+![](Mod2Task11Pic1.png)
 
-2.  Select the source and remote compute profiles from the drop-down lists, and
-    then select **Continue**.
+1. Click **Interconnect**.
+2. Click **Service Mesh**.
+3. Click **CREATE SERVICE MESH**.
 
-    ![](1e4fb7c3ea61eca87023844cbd7161e6.png)
+#### Step 2: Select Sites
 
-3.  Select the source and remote compute profiles from the drop-down lists, and
-    then click **Continue**. Leave “Select Services to be activated” as default,
-    click **Continue**.
+![](Mod2Task11Pic2.png)
 
-    ![](bd05e8cc2b61ca92bf4d5d758e82492c.png)
+1. Select the source site (on-premises).
+2. Select the destination site (AVS).
+3. Click **CONTINUE**.
 
-4.  In **Advanced Configuration - Override Uplink Network profiles**, select the
-    uplink profile created earlier and **Continue**.
+#### Step 3: Select Compute Profiles
 
-    Uplink network profiles connect to the network through which the remote
-    site's interconnect appliances can be reached.
+![](Mod2Task11Pic3.png)
 
-    ![](8b4db6e24421225707124b7dc74e452c.png)
+1. Click to select **Source Compute Profile** which you recently created, click **CLOSE**.
+2. Click to select **Remote Compute Profile** from AVS side, click **CLOSE**.
+3. Click **CONTINUE**.
 
-5.  **In Advanced Configuration – Network Extension Appliance Scale Out**, keep
-    1 as default appliance and the click **Continue**.
+#### Step 4: Select Services to be Activated
 
-    ![](fcff2a6b621256036b2515f4abc0ea4a.png)
+![](Mod2Task11Pic4.png)
 
-6.  **In Advanced Configuration – Traffic Engineering**, review and select
-    **Continue**.
+Leave the Default Services and click **CONTINUE**.
 
-    ![](6c62979f16c358450a7fd83419080037.png)
+#### Step 5: Advanced Configuration - Override Uplink Network Profiles
 
-7.  Review the topology preview and select **Continue. En**ter a user-friendly
-    name for this service mesh and select **Finish** to complete.
+![](Mod2Task11Pic5.png)
 
-    >**Note** the appliance names are derived from service mesh name (it's the
-    appliance prefix, essentially).
+1. Click to select the previously created Source **Uplink Network Profile**, click **CLOSE**.
+2. Click to select the Destination **Uplink Network Profile** (usually TNTXX-HCX-UPLINK), click **CLOSE**.
+3. Click **CONTINUE**.
 
-    ![](b44f4a3e490362ea9c938640cf70844a.png)
+#### Step 6: Advanced Configuration: Network Extension Appliance Scale Out
 
-8.  The Service Mesh deployment will take 5-10 minutes to complete. Once
-    successful, you will see the services as green
+![](Mod2Task11Pic6.png)
 
-    ![](65b54016fd86d97b552ab4d80cad96b2.png)
+In Advanced Configuration – Network Extension Appliance Scale Out, keep the defaults and then click **CONTINUE**.
 
-9.  Select **Interconnect \> Appliances**
+#### Step 7: Advanced Configuration - Traffic Engineering
 
-    ![](ae9326d87a11b8545920e0db715e71e3.png)
+![](Mod2Task11Pic7.png)
 
-    The HCX interconnect tunnel status should indicate **UP** and in green.
-    You're ready to migrate and protect Azure VMware Solution VMs using VMware
-    HCX. Azure VMware Solution supports workload migrations (with or without a
-    network extension). So you can still migrate workloads in your vSphere
-    environment, along with On-Premises creation of networks and deployment of
-    VMs onto those networks. For more information, see the [VMware HCX
-    Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
+In Advanced Configuration – Traffic Engineering, review, leave the defaults and click **CONTINUE**.
 
->**While we wait, let’s discuss the migration options**
+#### Step 8: Review Topology Preview
+
+![](Mod2Task11Pic8.png)
+
+Review the topology preview and click **CONTINUE**. 
+
+#### Step 9: Ready to Complete
+
+![](Mod2Task11Pic9.png)
+
+1. Enter a name for your Service Mesh (SUGGESTION: **HCX-OnPrem-XY**, where X is your group number, Y your particpant number).
+2. Click **FINISH**.
+
+> **Note:** the appliance names are derived from service mesh name (it's the appliance prefix, essentially).
+
+#### Step 10: Confirm Successful Deployment
+
+![](Mod2Task11Pic10.png)
+
+The Service Mesh deployment will take 5-10 minutes to complete. Once successful, you will see the services as green. Click on **VIEW APPLIANCES**.
+
+![](Mod2Task11Pic11.png)
+
+1. You can also navigatew by clicking **Interconnect** - Service Mesh.
+2. Click **Appliances**.
+3. Check for **Tunnel Status = *UP***.
+
+You're ready to migrate and protect on-premises VMs to Azure VMware Solution using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). So you can still migrate workloads in your vSphere environment, along with On-Premises creation of networks and deployment of VMs onto those networks. For more information, see the [VMware HCX Documentation.](https://docs.vmware.com/en/VMware-HCX/index.html)
+
