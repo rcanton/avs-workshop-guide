@@ -7,7 +7,13 @@ description: >
   Task 7: Configure HCX and connect to vCenter
 ---
 
-In this section, we will integrate HCX Manager with the On-Premises vCenter
+## Configure On-Premises HCX
+
+In this section, we will integrate and configure HCX Manager with the On-Premises vCenter Server.
+
+### **Exercise 1: Complete Configuraiton of On-Premises HCX**
+
+#### Step 1: Connect vCenter Server
 
 ![](Mod2Task7Pic1.png)
 
@@ -17,10 +23,14 @@ In this section, we will integrate HCX Manager with the On-Premises vCenter
 - Password: 0hDG3VqFyTd!
 2. Click **CONTINUE**.
 
+#### Step 2: Configure SSO/PSC
+
 ![](Mod2Task7Pic2.png)
 
 1. In **Configure SSO/PSC**, provide the same vCenter IP address.
 2. Click **CONTINUE**.
+
+#### Step 3: Restart HCX Appliance
 
 ![](Mod2Task7Pic3.png)
 
