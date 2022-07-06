@@ -1,6 +1,6 @@
 ---
 title: "Module 2 Task 11"
-linkTitle: "HCX Service Mesh Creation"
+linkTitle: "Task 11: HCX Service Mesh Creation"
 weight: 12
 
 description: >
