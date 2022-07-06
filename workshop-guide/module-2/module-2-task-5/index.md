@@ -7,8 +7,13 @@ description: >
   Task 5: Obtain HCX License Key
 ---
 
+## **Obtain HCX License Key**
 
 While the HCX installation runs, we will need to obtain a license key to activate HCX. This is available from the AVS blade in the Azure Portal.
+
+### **Exercise 1: Add HCX Key**
+
+#### Step 1: Add HCX Key from Azure Portal
 
 ![](Mod2Task5Pic1.png)
 
