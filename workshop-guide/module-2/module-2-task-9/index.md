@@ -7,21 +7,27 @@ description: >
   Task 9: Create network profiles
 ---
 
+## HCX Network Profiles
 
-VMware HCX Connector deploys a subset of virtual appliances (automated) that
-require multiple IP segments. You’ll create four network profiles.
+A Network Profile is an abstraction of a Distributed Port Group, Standard Port Group, or NSX Logical Switch, and the Layer 3 properties of that network. A Network Profile is a sub-component of a complete Compute Profile.
 
 > Customer’s environments may vary and may not have separate networks.
 
--   Management
--   vMotion
--   Replication
--   Uplink
+In this Task you will create a Network Profile for each network intended to be used with HCX services. More information can be found in VMware's Official Documentation, [Creating a Network Profile.](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-184FCA54-D0CB-4931-B0E8-A81CD6120C52.html)
+
+- **Management Network** - The HCX Interconnect Appliance uses this network to communicate with management systems like the HCX Manager, vCenter Server, ESXi Management, NSX Manager, DNS, NTP.
+- **vMotion Network** - The HCX Interconnect Appliance uses this network for the traffic exclusive to vMotion protocol operations.
+- **vSphere Replication Network** - The HCX Interconnect Appliance uses this network for the traffic exclusive to vSphere Replication.
+- **Uplink Network** - The HCX Interconnect appliance uses this network for WAN communications, like TX/RX of transport packets.
 
 These networks have been defined for you, please see below section.
 
 In a real customer environment, these will have been planned and identified previously, see here for the [planning
 phase](https://docs.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-deployment#define-vmware-hcx-network-segments).
+
+### **Exercise 1: Create Network Profiles**
+
+#### Step 1: Create 4 Network Profiles
 
 ![](Mod2Task9Pic1.png)
 
@@ -34,6 +40,8 @@ Create a network profile, use IP addresses allocated during the planning phase. 
     -  Replication
     -  Uplink
 
+#### Step 2: Enter information for each Network Profile
+
 ![](Mod2Task9Pic2.png)
 
 1. Select **Distributed Port Groups**.
@@ -43,8 +51,9 @@ Create a network profile, use IP addresses allocated during the planning phase. 
 
 > You should create a total of 4 Network Profiles.
 
+### **Network Profile Information**
 
-### Management Network Profile
+#### Management Network Profile
 
 | **Property**               | **Value**                       |
 |----------------------------|---------------------------------|
@@ -52,7 +61,7 @@ Create a network profile, use IP addresses allocated during the planning phase. 
 | Prefix Length              | 27                              |
 | Management Network Gateway | 10.**X**.**Y**.1      
 
-### vMotion Network Profile
+#### vMotion Network Profile
 
 | **Property**            | **Value**                       |
 |-------------------------|---------------------------------|
@@ -61,7 +70,7 @@ Create a network profile, use IP addresses allocated during the planning phase. 
 | vMotion Network Gateway | 10.**X**.**Y**.65                |
 | DNS                     | 1.1.1.1                         |
 
-### Replication Network Profile
+#### Replication Network Profile
 
 | **Property**                | **Value**                         |
 |-----------------------------|-----------------------------------|
@@ -70,7 +79,7 @@ Create a network profile, use IP addresses allocated during the planning phase. 
 | Replication Network Gateway | 10.**X**.**Y**.97                   |
 | DNS                         | 1.1.1.1                           |
 
-### Uplink Network Profile
+#### Uplink Network Profile
 
 | **Property**           | **Value**                       |
 |------------------------|---------------------------------|
