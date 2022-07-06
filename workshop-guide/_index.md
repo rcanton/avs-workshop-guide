@@ -9,7 +9,7 @@ menu:
 
 ## **Training Environment**
 
-### **Azure Credentials**
+### **Azure Portal Credentials**
 
 > Replace “**\#**” with your group number.
 
@@ -20,14 +20,16 @@ following credentials:
 | ------------ | ------------------------------------------------- |
 | **Password** | TO BE SUPPLIED                                    |
 
-## **Environment Details**
+### **Environment Details**
 
 ### **Jumpbox Details**
 
 Your first task should be to create a Jumpbox in your respective Jumpbox
 Resource group.
 
-### **INSTRUCTIONS FOR CREATION OF JUMPBOX**
+### **Exercise 1: Instructions for Creation of Jumpbox**
+
+#### Step 1: Create Azure Virtual Machine
 
 In the Azure Portal locate the Virtual Machines area.
 
@@ -35,6 +37,8 @@ In the Azure Portal locate the Virtual Machines area.
 
 1. Click **+ Create**.
 2. Select **Azure virtual machine**.
+
+#### Step 2: Basic information for Azure Virtual Machine
 
 {{% alert title="Important notes about the next step" color="warning" %}}  
 
@@ -67,6 +71,8 @@ Leave other defaults and scroll down on the Basics tab.
 4. Select checkbox for "I confirm I have an eligible Windows 10 license".
 Leave all other defaults and jump to **Networking** tab.
 
+#### Step 3: Azure Virtual Machine Networking Information
+
 ![](MainPic4.png)
 
 1. Click on **Networking** tab.
@@ -85,6 +91,8 @@ Leave all other defaults and jump to **Networking** tab.
 | 2         | GPSUS-Name2-Jumpbox        | GPSUS-Name2-VNet/JumpBox   |
 | 3         | GPSUS-Name3-Jumpbox        | GPSUS-Name3-VNet/JumpBox   |
 | 4         | GPSUS-Name4-Jumpbox        | GPSUS-Name4-VNet/JumpBox   |
+
+#### Step 4: Connect to your Azure Virtual Machine Jumpbox
 
 ![](MainPic5.png)
 
@@ -110,18 +118,19 @@ private cloud. It's not for daily administrative activities or integration with
 other services. For more information see
 [here](https://docs.microsoft.com/en-us/azure/azure-vmware/concepts-identity)
 
-## On-Premises VMware Lab Environment
+### **On-Premises VMware Lab Environment**
 
-If you are in a group with multiple participants you will be assigned a
-participant number.
+If you are in a group with multiple participants you will be assigned a participant number.
 
-### Generic information
+> **Replace X with your group number and Y with your participant number.**
+
+#### Generic information
 
 | **Group** | **Participant** | **vCenter IP** | **Username**                | **Password** | **Web workload IP** | **App Workload IP** |
 | --------- | --------------- | -------------- | --------------------------- | ------------ | ------------------- | ------------------- |
 | X         | Y               | 10.X.Y.2       | administrator@vsphere.local | 0hDG3VqFyTd! | 10.X.1Y.1/25        | 10.X.1Y.129/25      |
 
-### **Example for Group 1 with 4 participants**
+#### **Example for Group 1 with 4 participants**
 
 | **Group** | **Participant** | **vCenter IP** | **Username**                | **Password** | **Web workload IP** | **App Workload IP** |
 | --------- | --------------- | -------------- | --------------------------- | ------------ | ------------------- | ------------------- |
