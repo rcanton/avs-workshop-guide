@@ -7,21 +7,21 @@ description: >
 ---
 
 
-## Introduction Module 1
+## **Introduction Module 1**
 
   Azure VMware Solution offers a private cloud environment accessible from
   On-Premises and Azure-based resources. Services such as Azure ExpressRoute, VPN
   connections, or Azure Virtual WAN deliver the connectivity.
 
 
-## Scenario
+## **Scenario**
 
 Customer needs to have connectivity between their workloads in AVS, existing services and workloads in
 Azure, and access to the internet.
 
 ![](457693efe56f5acc79bd76ef52f829ee.png)
 
-## Connectivity Options for AVS
+## **Connectivity Options for AVS**
 
 This hands-on lab will show you how to configure the Networking components of an
 Azure VMware Solution for:
