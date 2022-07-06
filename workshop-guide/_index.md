@@ -130,7 +130,7 @@ If you are in a group with multiple participants you will be assigned a particip
 | --------- | --------------- | -------------- | --------------------------- | ------------ | ------------------- | ------------------- |
 | X         | Y               | 10.X.Y.2       | administrator@vsphere.local | 0hDG3VqFyTd! | 10.X.1Y.1/25        | 10.X.1Y.129/25      |
 
-#### **Example for Group 1 with 4 participants**
+#### Example for Group 1 with 4 participants
 
 | **Group** | **Participant** | **vCenter IP** | **Username**                | **Password** | **Web workload IP** | **App Workload IP** |
 | --------- | --------------- | -------------- | --------------------------- | ------------ | ------------------- | ------------------- |
