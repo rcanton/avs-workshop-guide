@@ -1,47 +1,99 @@
 ---
 title: "Module 2 Task 13"
-linkTitle: "Task 13: VM Migration"
+linkTitle: "Task 13: HCX VM Migration"
 weight: 14
 
 description: >
-  Task 13: Migrate a VM using HCX and vMotion
+  Task 13: Migrate a VM using HCX vMotion
 ---
 
+## **Migrate a VM using HCX vMotion**
 
-Now that the Service Mesh appliances have been deployed successfully, we can now
-migrate workloads from on-premises to AVS. In this lab, we will migrate a Test
-VM using vMotion
+Now that your Service Mesh has deployed the additional appliances HCX will utilize successfully, you can now migrate VMs from your on-premises environment to AVS. In this module, you will migrate a test VM called **SampleApp-AppA-Standalone** that has been pre-created for you in your simulated on-premises environment using HCX vMotion.
 
-As part of the on-premises lab, you will see a VM folder named **Workloads** and
-a VM called **SampleApp-AppA-Standalone** already connected to our
-**workload-web** network
+### **Exercise 1: Migrate VM to AVS**
 
-![](8d8377951355a4fdf93a9a0ca8fbc114.png)
+#### Step 1: Examine VM to be migrated
 
-1.  **To test a migration of this VM, from the HCX Menu, select Migration and
-    the Migrate button**
+![](Mod2Task13Pic1.png)
 
-    ![](d195c68b3a7a95a5182e031eb07db2bc.png)
+1. Click the **VMs and Templates** icon in your on-premises vCenter Server.
+2. Under the folder called **Workloads** you will find the VM named **SampleApp-AppA-Standalone**, select it.
+3. Notice the IP address assigned to the VM, this should be consistent with the network you stretched using HCX in a previous exercise.
+4. Notice the name of the Network this VM is connected to: **workload-web**.
 
-2.  **Select the SampleApp-AppA-Standalone VM and Add**
+#### Step 2: Access HCX Interface
 
-    ![](fc1b4a25b1674b1b327c1d393d024185.png)
+![](Mod2Task13Pic2.png)
 
-3.  Here we have to specify our destination AVS settings and where to migrate this VM
+1. From the vCenter Server interface, click **Menu**.
+2. Click **HCX**.
 
-    3.1.  Computer Container: **Select Cluster-1**
+> You can also access the HCX interface by using its standalone interface (outside vCenter Server interface) by opening a browser tab to: https://10.X.Y.9, where **X** is your group number and **Y** is your participant number.
 
-    3.2.  Destination Folder: **Any folder**
+#### Step 3: Initiate VM Migration
 
-    3.3.  Destination Storage: **vsanDatastore**
+![](Mod2Task13Pic3.png)
 
-    3.4.  Migration Profile: **vMotion**
+1. From the HCX interface click **Migration** in the left pane.
+2. Click **MIGRATE**.
 
-    ![](6afd5c30810b6d6edd7a7800aa83f086.png)
 
-4.  Validation step, expand **VM for Migration**, note the Network Adapter is automatically filled in. This is the network extension adapter that was created in the previous task (optional)
+#### Step 4: Select VMs for Migration
 
-    ![](4af2de468d09f150cea0b9e44f80f0bf.png)
+![](Mod2Task13Pic4.png)
 
-5.  Select Validate and Go – This will migrate the VM to AVS. Since this is vMotion, there is no downtime experienced and the VM is moved without any disruption
+1. Click **Workloads** to navigate to the location of your VM.
+2. Click the checkbox to select your VM named **SampleApp-AppA-Standalone**.
+3. Click **ADD**.
+
+#### Step 5: Transfer and Placement of VM on Destination Site
+
+![](Mod2Task13Pic5.png)
+
+**Transfer and Placement** options can be entered in 2 different ways:
+1. If you've selected multiple VMs to be migrated and all VMs will be placed/migrated with the same options, setting the options in the area with the green background will set the options for all VMs.
+2. To set the options individually per VM can be set and they can be different from each other.
+3. Click either **GO** or **VALIDATE** button. Clicking **VALIDATE** will validate that the VM can be migrated (This will not migrate the VM). Clicking **GO** will both validate and migrate the VM.
+
+Use the following values for these options:
+
+|       Option       |    Value                   |
+|--------------------|----------------------------|
+| Compute Container  | Cluster-1                  |
+| Destination Folder | Discovered virtual machine |
+| Storage            | vsanDatastore              |
+| Format             | Same format as source      |
+| Migration Profile  | vMotion                    |
+| Switchover Schedule | N/A                       |
+
+#### Step 6: Monitor VM Migration
+
+![](Mod2Task13Pic6.png)
+
+As you monitor the migration of your VM, keep an eye on the following areas:
+1. Percentage status of VM migration.
+2. Sequence of events as the migration occurs.
+3. **Cancel Migration** button.
+
+#### Step 7: Verify Completion of VM Migration
+
+![](Mod2Task13Pic7.png)
+
+Ensure your VM was successfully migrated. You can also check for the VM in your AVS vCenter to Ensure it was migrated.
+
+#### Step 8: Reverse Migration
+
+![](Mod2Task13Pic8.png)
+
+VMware HCX also supports **Reverse Migration**, migrating from AVS back to on-premises. 
+
+> **IMPORTANT** - All migrations, including reverse migrations must be initiated from the source site (on-premises in this case).
+
+1. Click **Reverse Migration** checkbox.
+2. Select the **Discovered virtual machine** folder.
+3. Select your same virtual machine to migrate back to on-premises.
+4. Click **ADD**.
+
+The rest of the steps are similar to what you did on Step 5.
 
