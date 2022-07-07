@@ -94,7 +94,7 @@ The Service Mesh deployment will take 5-10 minutes to complete. Once successful,
 
 ![](Mod2Task11Pic11.png)
 
-1. You can also navigatew by clicking **Interconnect** - Service Mesh.
+1. You can also navigate by clicking **Interconnect** - Service Mesh.
 2. Click **Appliances**.
 3. Check for **Tunnel Status = *UP***.
 
