@@ -4,33 +4,57 @@ linkTitle: "Task 12: Network Extension"
 weight: 13
 
 description: >
-  Task 12: Setup the Network Extension
+  Task 12: Network Extension
 ---
 
+## **HCX Network Extension**
 
-Once the Service Mesh appliances have been deployed, the next important step is
-to extend the on-premise network to AVS, so that any migrated VM’s will be able
-to retain their existing IP address and be accessible from all locations
+You can extend networks between and HCX-activated on-premises environment and Azure VMware Solution (AVS) with HCX Network Extension.
 
-1.  Navigate to **Network Extension,** Create a Network Extension
+With VMware HCX Network Extension (HCX-NE), you can extend a VM's network to a VMware HCX remote site like AVS. VMs that are migrated, or created on the extended network at the remote site, behave as if they exist on the same L2 network segement a VMs in the source (on-premises) environment. With Network Extension from HCX, the default gateway for an extended network is only connected at the source site. Traffic from VMs in remote sites must be routed to a different L3 network will flow through the source site gateway.
 
-    ![](f9faed0da1836acad9fcfea26682da5a.png)
+With VMware HCX Network Extension you can:
 
-2.  Select the service mesh and segment to extend. In this lab, we will extend
-    **workload-web**
+- Retain the IP and MAC addresses of the VMs and honor existing network policies.
+- Extend VLAN-tagged networks from a VMware vSphere Distributed Switch.
+- Extend NSX segments.
 
-    ![](4279fd1dd752bcb12e57d5d44c8725a1.png)
+For more information please visit VMware's documentation for [Extending Networks with VMware HCX.](https://docs.vmware.com/en/VMware-HCX/4.3/hcx-user-guide/GUID-DD9C3316-D01C-4088-B3EA-84ADB9FED573.html)
 
-3.  Select the First Hop Router, in this Lab there is only 1 option –
-    **TNTXX-TI**
+Once the Service Mesh appliances have been deployed, the next important step is to extend the on-premises network(s) to AVS, so that any migrated VM’s will be able to retain their existing IP address.
 
-4.  Enter the Workload Web Gateway IP as 10.**X**.10**Y**.1/25.
+### **Exercise 1: Create a Network Extension**
 
-    ![](e9731ade07f7a8bf3ee8172fc72ae6b6.png)
+#### Step 1: Network Extension Creation
 
-5.  Submit, this will start the process of extending the network by creating a
-    remote stretch record and network bridges on the remote AVS side. This will
-    take about 3-5 minutes to complete
+![](Mod2Task12Pic1.png)
 
-    ![](41ee30763f7c89fcfe7c427d25d12837.png)
+1. Click **Network Extension**.
+2. Click **CREATE A NETWORK EXTENSION**.
 
+#### Step 2: Select Source Networks to Extend
+
+![](Mod2Task12Pic2.png)
+
+1. **Select Service Mesh** - Ensure you select your own Service Mesh you created in an earlier step.
+2. Select **workload-web** network.
+3. Click **NEXT**.
+
+#### Step 3: Configure Network Extension
+
+![](Mod2Task12Pic3.png)
+
+1. **Destination First Hop Router** - Ensure your own NSX-T T1 router you created earlier is selected.
+2. Enter the **Gateway IP Address / Prefix Length** for the **workload-web** network. You can find this information in the [On-Premises Lab Environment](/docs/#on-premises-vmware-lab-environment) section.
+- Example: 10.**X**.1**Y**.1/25, where **X** is your group number and **Y** is your participant number.
+3. Ensure your own **Extension Appliance** is selected.
+4. Confirm your own T1 is selected under **Destination First Hop Router**.
+5. Click **SUBMIT**.
+
+> It might take 5-10 minutes for the Network Extension to complete.
+
+#### Step 4: Confirm Status of Network Extension
+
+![](Mod2Task12Pic4.png)
+
+Confirm the status of the Network Extension as **Extension complete**.
