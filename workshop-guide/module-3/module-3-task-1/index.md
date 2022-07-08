@@ -49,7 +49,7 @@ Monitor the progress of your deployment. When deployment completes click on **Go
 
 **IMPORTANT - These steps may need to also be completed on your Recovery site (The AVS Private Cloud you'll be paired with). Either ask someone on that group to go through these steps or perform them yourself in the other AVS Private Cloud.**
 
-### **Exercise 2:  Create NSX-T Segment and VM in Protected Site**
+### **Exercise 2:  Create NSX-T Segment in Protected Site**
 
 > Remember X is your group number, Y is your participant number, Z is the SDDC you've been paired with.
 
@@ -57,7 +57,7 @@ In this exercise you will create a network segment in the production site and de
 
 > This task requires a DHCP profile to be available in the private cloud. DHCP profiles have been configured in Module 1 for both GPSUS-PARTNER**X**-SDDC and GPSUS-PARTNER**Z**-SDDC (The other group should have configured this). If you did not complete the corresponding steps in Module 1, please go back to it and configure DHCP profiles before proceeding. [Add DHCP Profile in AVS Private Cloud.](/docs/module-1/module-1-task-2/#exercise-2-add-dhcp-profile-in-avs-private-cloud)
 
-#### Step 1: Create NSX-T Network Segement
+#### Step 1: Create NSX-T Network Segment
 
 ![](Mod3Task1Pic5.png)
 
