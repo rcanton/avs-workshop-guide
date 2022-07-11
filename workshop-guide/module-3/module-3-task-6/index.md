@@ -86,7 +86,7 @@ Click **FINISH** to complete the creation of your Protection Group.
 1. Select **vsanDatastore** as the location for the replicated files. Leave all other defaults.
 2. Click **NEXT**.
 
-#### Step 5: VM Replicatin Settings
+#### Step 5: VM Replication Settings
 
 ![](Mod3Task6Pic11.png)
 
