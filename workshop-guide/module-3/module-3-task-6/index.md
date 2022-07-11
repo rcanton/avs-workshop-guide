@@ -1,61 +1,144 @@
 ---
 title: "Module 3 Task 6"
-linkTitle: "Task 6: Configure vSphere"
+linkTitle: "Task 6: SRM Protection Groups and vSphere Replication"
 weight: 7
 
 description: >
-  Task 6: Configure vSphere Replication and Recovery Plan
+  Task 6: Configure Protection Groups, vSphere Replication and Recovery Plan
 ---
 
+## **SRM Protection Groups**
 
-In this task you will configure vSphere replication for the test VM created in
-Task 2 and a recovery plan to protect it. This task is performed from the
-primary site’s vCenter client. In the main menu, select **VM and Templates** and
-then right-click on your test VM named G-XY-SRM-VM1. From the context menu, select
-**All Site Recovery Actions** and then **Configure replication**.
+In this task you will configure vSphere replication for the test VM created in Task 2 as well as a Protection Group for this VM and a recovery plan to protect it. This task is performed from the primary site’s vCenter Server.
 
->*Note: Check pop-up blocker if stuck.*
+### **Exercise 1: Create Protection Group**
 
-![](1044498d505fba36f9621e504fef8401.png)
+#### Step 1: Create New Protection Group
 
-## vSphere Replication
+![](Mod3Task6Pic1.png)
 
-![](4178918f64a3ec52800aa8b91985bda8.png)
+1. Click **Protection Groups**.
+2. Click **NEW**.
 
-Follow the steps in the configuration wizard. Select the recovery site (FDQN
-ending with the suffix **brazilsouth.avs.azure.com**) as the target site.
-Provide credentials for the recovery site’s vCenter. The credentials are
-available in the Azure portal. Select **Auto-assign replication server**.
+#### Step 2: Name and Direction for Protection Group
 
-![](921e6c47831001cec93fa0b1cb0cbb2b.png)
+![](Mod3Task6Pic2.png)
 
-Check that the test VM is ready for replication, then click on the **NEXT** button
-and select **vSAN Datastore** as the target datastore. In the **Replication
-Settings** step, select the RPO you want to have for the protected VM (15 mins in
-the screenshot below).
+1. Give your Protection Group a name: **PG-XY**, where **X** is your group number and **Y** is your participant number.
+2. Select the direction for your Protection Group (leave the default).
+3. Click **NEXT**.
 
-![](ed04edab49abb4c8ebf49ec2440e7745.png)
+#### Step 3: Select the Type of Protection Group
 
-## SRM Protection Group and Recovery Plan
+![](Mod3Task6Pic3.png)
 
-The last two steps in the configuration wizard allow you to create an SRM
-Protection Group and a Recovery Plan. Please note that this is needed because
-you are configuring SRM protection for the first VM. Additional VMs can leverage
-existing protection groups and recovery plans. In step 5 **Protection Group**
-enter a name for your protection group, such as **SRM-LAB-PROTECTION-GROUP-XY**. In
-step 6 **Recovery Plan** enter a name for your recovery plan, such as
-**SRM-LAB-REC-PLAN-XY**. Confirm your settings by clicking on the green **FINISH**
-button.![Graphical user interface, table Description automatically generated
-with medium confidence](456e8f584cc78a9b7a95f1963c641cd6.png)
+1. Select **Individual VMs (vSphere Replication)**.
+2. Click **NEXT**.
 
-Wait until the replication status for your test VM is reported to be **OK** (use
-the **Refresh** button in SRM’s console).
+#### Step 4: Virtual Machines
 
-![](29a104a28bda920bc3bdb24cfd2a6d6d.png)
+![](Mod3Task6Pic4.png)
 
-To confirm that replication and SRM protection have been successfully
-configured, log into the recovery site’s vCenter and check that a placeholder VM
-has been created.
+Click **NEXT** and do not include any Virtual Machines in the protection group yet.
 
-![](589542c3eaf085fcca44f07bd46d2979.png)
+#### Step 5: Recovery Plan
 
+1. Select **Do not add to recovery plan now**.
+2. Click **NEXT**.
+
+#### Step 6: Complete Protection Group
+
+![](Mod3Task6Pic5.png)
+
+Click **FINISH** to complete the creation of your Protection Group.
+
+### **Exercise 2: Protect Virtual Machine with SRM**
+
+#### Step 1: Configure Replication
+
+![](Mod3Task6Pic7.png)
+
+> Make sure to disable pop-ups in your browser for this step.
+
+1. From your Protected vCenter Server locate the VM you created earlier, right-click.
+2. Select **All Site Recovery actions**.
+3. Click **Configure Replication**.
+
+#### Step 2: Configure Target Site
+
+![](Mod3Task6Pic8.png)
+
+1. Select the target site to replicate the VM to.
+2. Ensure **Auto-assign vSphere Replication Server** is selected.
+3. Click **NEXT**.
+
+#### Step 3: VM Validation
+
+![](Mod3Task6Pic9.png)
+
+1. Ensure the status of the VM validation is **OK**.
+2. Click **NEXT**.
+
+#### Step 4: Target Datastore
+
+![](Mod3Task6Pic10.png)
+
+1. Select **vsanDatastore** as the location for the replicated files. Leave all other defaults.
+2. Click **NEXT**.
+
+#### Step 5: VM Replicatin Settings
+
+![](Mod3Task6Pic11.png)
+
+1. Leave all defaults, **Recovery point objective (RPO)** should be set to **1 hour**.
+2. Click **NEXT**.
+
+#### Step 6: Assign to Protection Group
+
+![](Mod3Task6Pic12.png)
+
+1. Ensure **Add to existing protection group** is selected.
+2. Select the **PG-XY** Protection Group you recently created.
+3. Click **NEXT**.
+
+#### Step 7: Complete Configuring Replication
+
+![](Mod3Task6Pic13.png)
+
+Click **FINISH** to complete the configuration of the replication for the VM.
+
+### **Exercise 3: Recovery Plans
+
+#### Step 1: Name and Direction for Recovery Plan
+
+![](Mod3Task6Pic14.png)
+
+1. Give your Recovery Plan a name: **RP-XY**, where **X** is your group number and **Y** is your particpant number.
+2. Ensure the **Direction** of the Recovery Plan is correct.
+3. Click **NEXT**.
+
+#### Step 2: Add Protection Group to Recovery Plan
+
+![](Mod3Task6Pic15.png)
+
+1. Ensure **Protection groups for individual VMs or datastore groups** is selected.
+2. Select your **PG-XY** Protection Group you created earlier.
+3. Click **NEXT**.
+
+#### Step 3: Test Networks
+
+![](Mod3Task6Pic16.png)
+
+Leave the defaults for **Test Networks** and click **NEXT**.
+
+#### Step 4: Complete Creation of Recovery Plan
+
+![](Mod3Task6Pic17.png)
+
+Click **FINISH** to complete the creation of your Recovery Plan.
+
+### **Confirm Placeholder VM in Recovery Site**
+
+![](Mod3Task6Pic18.png)
+
+Log in to your Recovery Site vCenter Server and locate the Placeholder VM created by SRM.
