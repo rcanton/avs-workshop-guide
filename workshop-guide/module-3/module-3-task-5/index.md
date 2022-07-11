@@ -138,7 +138,7 @@ Click **FINISH** button to complete Folder Mappings.
 
 Click **FINISH** button to complete Resource Mappings.
 
-### **Exercise 4: Storage Policy Mappings
+### **Exercise 4: Storage Policy Mappings**
 
 #### Step 1: Create New Storage Policy Mappings
 
