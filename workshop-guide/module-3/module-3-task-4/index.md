@@ -1,57 +1,65 @@
 ---
 title: "Module 3 Task 4"
-linkTitle: "Task 4: Configure Site Pairing"
+linkTitle: "Task 4: Configure SRM Site Pairing"
 weight: 5
 
 description: >
   Task 4: Configure a Site Pairing in Site Recovery Manager
 ---
+## **SRM Site Pairing**
 
 >Remember X is your group number, Y is your participant number, Z is the SDDC you've been paired with.
 
-In this task you will pair the protected site GROUPX-AVS-SDDC and the recovery
-site GPSUS-NAMEZ-SDDC.
+In this task you will pair the protected site GPSUS-PARTNER**X**-SDDC and the recovery site GPSUS-PARTNER**Z**-SDDC.
 
-Site pairing can be configured from vCenter on either the primary or the
-recovery private cloud. You will work on the primary site’s vCenter. If needed,
-log into vCenter in the primary AVS private cloud GPSUS-NAMEX-SDDC and select
-**Site Recovery** from the main menu. Click on the **OPEN Site Recovery** button.
+### **Exercise 1: Site Pairing**
 
-![](31c387a424cd9ac00e00f5b1f46ec7d5.png)
+Site pairing can be configured from vCenter on either the primary or the recovery private cloud. You will work on the primary site’s vCenter.
 
-Site Recovery Manager opens in a new browser tab.
 
->**Note: Web page may perpetually get stuck into loading status. In this case, go
-back to main page and click **Open Site Recovery** button again.**
+#### Step 1: Access Site Recovery Manager from vCenter Server
 
-Click on the **NEW SITE PAIR** button to launch the configuration wizard.
+![](Mod3Task4Pic1.png)
 
-![](2846f78785bf7bc7f6b5a4906ef0b335.png)
+1. Log into vCenter Server in the primary AVS private cloud GPSUS-PARTNER**X**-SDDC and click the menu bat.
+2. Select **Site Recovery** from the main menu.
 
-Select the local vCenter server that you want to pair. The only option is the
-protected site’s vCenter (GPSUS-NAMEX-SDDC). Provide the IP address and the
-credentials of the recovery site’s vCenter (GPSUS-NAMEZ-SDDC), which can be
-obtained from the Azure portal. Ensure that you remove *https and/or any
-slashes* after pasting the vCenter value.
+![](Mod3Task4Pic2.png)
 
-![](47c5c80246569ab43d588f1d041e256f.png)
+Click **OPEN Site Recovery**.
 
-Click on the **NEXT** button. The security alert(s) that you receive are due to
-the usage of certificates issued by an untrusted CA in the lab. In real,
-production environments certificates issued by a trusted CA should be used
-instead. In this lab, you can ignore the security warning and click on the
-**CONNECT** button.
+#### Step 2: Create New Site Pair
 
-![](7fd8b7be48eb293420088b5ce16b654a.png)
+![](Mod3Task4Pic3.png)
 
-Configure the site pairing with both the SRM and the vSphere replication
-services. Again, you can ignore the security warnings due to untrusted
-certificates and proceed by clicking on the **CONNECT** button.
+Click **NEW SITE PAIR**.
 
-![](157d9ea5d2c9d933aebb494ee08af686.png)
+#### Step 3: Select local vCenter Server
 
-When the configuration process completes, the SRM main page displays the new
-site pairing.
+![](Mod3Task4Pic4.png)
 
-![](a78bc6bd597184e555fa5572994e75a7.png)
+1. Ensure your local vCenter Server is selected.
+2. Ensure **Pair with a peer vCenter Server located in a different SSO domain** is selected.
+3. Click **NEXT**.
 
+#### Step 4: Peer vCenter Server
+
+![](Mod3Task4Pic5.png)
+
+1. Enter the vCenter Server information for the Recovery site. This should be GPSUS-PARTNER**Z**-SDDC.
+2. Click **FIND VCENTER SERVER INSTANCES**. If a warning shows up click **CONNECT**.
+3. Select your peer vCenter Server.
+4. Click **NEXT**.
+
+#### Step 5: Select services identified
+
+![](Mod3Task4Pic6.png)
+
+1. Select the top checkbox to select all services.
+2. Click **NEXT**. Then click **FINISH**.
+
+#### Step 6: Confirm Site Pairing Completes
+
+![](Mod3Task4Pic7.png)
+
+When the configuration process completes, the SRM main page displays the new site pairing.
