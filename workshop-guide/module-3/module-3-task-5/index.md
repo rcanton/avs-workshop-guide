@@ -7,133 +7,175 @@ description: >
   Task 5: Configure Inventory Mappings
 ---
 
-
+## **SRM Inventory Mappings**
 
 >Remember X is your group number, Y is your participant number, Z is the SDDC you've been paired with.
 
-In this task you will configure inventory mappings, which define the resources
-(networks, folders, compute resources, storage policies) that VMs must use when
-moved to the recovery site. It is also possible to define reverse mappings,
+In this task you will configure inventory mappings, which define the resources (networks, folders, compute resources, storage policies) that VMs must use when moved to the recovery site. It is also possible to define reverse mappings,
 which control resource allocation for failback processes.
 
-## Network mappings
+### **Exercise 1: Network mappings**
 
-Open the **Site Pair** configuration pane in SRM and select **Network Mappings** in
-the **Configure** section of the left-hand-side menu. Then click on the **NEW**
-button to launch the configuration wizard.
+#### Step 1: Log in to Site Recovery Manager
 
-![](850e44547c85fe48a4151e6fd7eed8b2.png)
+![](Mod3Task5Pic1.png)
 
-Select **Prepare mappings manually** to define a custom mapping between the
-network segments created for the SRM lab module in the previous tasks. Then
-click on the **NEXT** button and map the **SRM-LAB-GROUP-XY** segment in the protected site
-to the **SRM-LAB-RECOVERY-GROUP-XY** segment in the recovery site. Click on the **ADD
-MAPPINGS** button to confirm.
+In the **Site Recovery** interface, click the **VIEW DETAILS** button on the paired sites.
 
-![](2efdf93a054c742f7bb646c4dc6c6223.png)
+#### Step 2: Authenticate to Recovery Site
 
-In the **Reverse Mapping** step, enable the suggested reverse mapping.
+![](Mod3Task5Pic2.png)
 
-![](27d7d8cde06f10747292ad75184dabc6.png)
+You may need to re-authenticate to the recovery site. Enter those credentials and click **LOG IN**.
 
-In **Test Networks** step, accept the default setting. When later in the module
-you will test your recovery plan, the protected VM will be instantiated in an
-isolated network segment automatically created at the beginning of the test (and
-automatically removed when the recovery plan test is cleaned up).
+#### Step 3: Create New Network Mapping
 
-![](562687484b97b3263514f43493700ca6.png)
+![](Mod3Task5Pic3.png)
 
-Click on the **NEXT** button and then commit your configuration by clicking on the
-green **FINISH** button.
+1. Click **Network Mappings** in the left pane.
+2. Click **NEW**.
 
-## Folder Mappings
+#### Step 4: Network Mappings Creation Mode
 
-Open the **Site Pair** configuration pane in SRM and select **Folder Mappings** in
-the **Configure** section of the left-hand-side menu. Then click on the **NEW**
-button to launch the configuration wizard.
+![](Mod3Task5Pic4.png)
 
-![](59f2f3e76565bba79fe9fd9e27fe6f1e.png)
+1. Click to select **Prepare mappings manually**.
+2. Click **NEXT**.
 
-Select **Automatically prepare mappings for folders with the same name**, then
-click on the **NEXT** button. Select **SDDC-Datacenter** on both sides of the
-mapping and click on the **ADD MAPPINGS** button. Accept the automatically
-prepared mappings.
+#### Step 5: Configure Recovery Network Mappings
 
-![](9ced3b0f8b626c61b50364d9c5090d2d.png)
+![](Mod3Task5Pic5.png)
 
-On step 3 **Reverse Mappings** accept the mappings proposed by the wizard. Then
-click on the **NEXT** button and commit your configuration by clicking on the
-green **FINISH** button.
+1. Select first the SRM Protected Segment created earlier called **SRM-SEGMENT-XY**.
+2. On the right side select **SRM-REcOVERY-XY**.
+3. Click **ADD MAPPINGS** button.
+4. Click **NEXT**.
 
-![](b7930ecbdb992b6419aed0426908309a.png)
+#### Step 6: Configure Reverse Mappings
 
-## Resource Mappings
+![](Mod3Task5Pic6.png)
 
-Open the **Site Pair** configuration pane in SRM and select **Resource Mappings** in
-the **Configure** section of the left-hand-side menu. Then click on the **NEW**
-button to launch the configuration wizard.
+1. Select the checkbox to set the reverse mappings for the network.
+2. Click **NEXT**.
 
-![](420dd1c3327bb44786d1e4e4fe872f50.png)
+#### Step 7: Test Networks
 
-On step 1 **Recovery Resources** expand the **SDDC-Datacenter** nodes on both the
-primary and the recovery side and select **Cluster 1**. Click on the **ADD
-MAPPINGS** button to confirm.
+![](Mod3Task5Pic7.png)
 
-![](25fe495c757206ea9717e6f9a1320278.png)
+1. Define a **Test Network**. SRM allows you to specify a test network your recovered VMs will connect to when performing a DR test or you can let SRM auto create the test networks. For the purposes of this workshop leave the default of auto created.
+2. Click **NEXT**.
 
-Accept the reverse mapping proposed by the wizard, click on the **NEXT** button
-and then confirm your settings by clicking on the green **FINISH** button.
+#### Step 8: Complete Network Mappings
 
-![](0cb1fd060fb96745f45992f0779d169f.png)
+![](Mod3Task5Pic8.png)
 
-## Storage Policy Mappings
+To complete the network mappings setup click **FINISH**.
 
-Open the **Site Pair** configuration pane in SRM and select **Storage Policy
-Mappings** in the **Configure** section of the left-hand-side menu. Then click on
-the **NEW** button to launch the configuration wizard.
+### **Exercise 2: Folder Mappings**
 
-![](0eb20eaf58bbcf7f4f03b2c295c81c24.png)
+#### Step 1: New Folder Mappings
 
-Select **Automatically prepare mappings for storage policies with the same name**,
-then click on the **NEXT** button. Select **vSAN Default Storage Policy** on both
-sides of the mapping and click on the **ADD MAPPINGS** button. Accept the
-automatically prepared mappings. Accept the automatically discovered mappings.
+![](Mod3Task5Pic9.png)
 
-![](db8788f38475d84d72ee8b6e572f406e.png)
+1. Click **Folder Mappings**.
+2. Click **NEW**.
 
-Accept the reverse mapping proposed by the wizard, click on the **NEXT** button
-and then confirm your settings by clicking on the green **FINISH** button.
+#### Step 2: Folder Mappings Creation Mode
 
-![](e80c270f4536be4eba1b004b39448cd9.png)
+![](Mod3Task5Pic10.png)
 
-## Placeholder Datastores
+1. Ensure **Automatically prepare mappings for folders with matching names** is selected.
+2. Click **NEXT**.
 
-When vSphere Replication is configured for a VM, a **placeholder VM** is created
-in the target recovery site. Placeholder VMs represent, in the recovery site,
-VMs that will be instantiated when a recovery plan is run. SRM requires you to
-define which datastore to use for placeholder VMs. If you plan to use SRM for
-failback, you need to define placeholder datastores at both the protected and
-the recovery sites.
+#### Step 3: Configure Recovery Folders
 
-Open the **Site Pair** configuration pane in SRM and select **Placeholder
-Datastores** in the **Configure** section of the left-hand-side menu. In the
-**Placeholder Datastores** configuration tile, select your primary site’s vCenter
-server (its FQDN ends with the suffix ****eastus2**.avs.azure.com**).
+![](Mod3Task5Pic11.png)
 
-![](01f786a9886c37613a38e504d25f26a4.png)
+1. Select **SDDC-Datacenter** on both sides.
+2. Click **ADD MAPPINGS**.
+3. Click **NEXT**.
 
-Click on the **NEW** button to add a datastore. Select **vSAN Datastore** and click
-on the **ADD** button.
+#### Step 4: Folder Reverse Mappings
 
-![](f633376f0777f39351ce0507d6d1638f.png)
+![](Mod3Task5Pic12.png)
 
-Repeat the same steps for the recovery site’s vCenter (its FQDN ends with the
-suffix ****brazilsouth**.avs.azure.com**).
+1. Select all checkboxes to create the folder reverse mappings.
+2. Click **NEXT**.
 
-![](4cbe92d7e370b175e72f8c8ce9e0a458.png)
+#### Step 5: Complete Folder Mappings
 
-Click on the **NEW** button to add a datastore. Select **vSAN Datastore** and click
-on the **ADD** button.
+![](Mod3Task5Pic13.png)
 
-![](37cf2222e43de01f9dfdc16a68b122a3.png)
+Click **FINISH** button to complete Folder Mappings.
+
+### **Exercise 3: Resource Mappings**
+
+#### Step 1: Create New Resource Mapping
+
+![](Mod3Task5Pic14.png)
+
+1. Click **Resource Mappings**.
+2. Click **NEW**.
+
+#### Step 2: Configure Recovery Resource Mappings
+
+![](Mod3Task5Pic15.png)
+
+1. Expand **SDDC-Datacenter** on both sides and select **Cluster-1**.
+2. Click **ADD MAPPINGS**.
+3. Click **NEXT**.
+
+#### Step 3: Reverse Mappings
+
+![](Mod3Task5Pic16.png)
+
+1. Select all checkboxes to create the resource reverse mappings.
+2. Click **NEXT**.
+
+#### Step 4: Complete Resource Mappings
+
+![](Mod3Task5Pic17.png)
+
+Click **FINISH** button to complete Resource Mappings.
+
+### **Exercise 4: Storage Policy Mappings
+
+#### Step 1: Create New Storage Policy Mappings
+
+![](Mod3Task5Pic18.png)
+
+1. Click **Storage Policy Mappings**.
+2. Click **NEW**.
+
+#### Step 2: Storage Policy Creation Mode
+
+![](Mod3Task5Pic19.png)
+
+1. Ensure **Automatically prepare mappings for storage policies with matching names** is selected.
+2. Click **NEXT**.
+
+#### Step 3: Configure Recovery Storage Policy Mappings
+
+![](Mod3Task5Pic20.png)
+
+1. Click and select **vSAN Default Storage Policy** on both sides.
+2. Click **ADD MAPPINGS**.
+3. Click **NEXT**.
+
+#### Step 4: Reverse Mappings
+
+![](Mod3Task5Pic21.png)
+
+1. Select all checkboxes to create the Storage Policy Reverse Mappings.
+2. Click **NEXT**.
+
+#### Step 5: Complete Storage Policy Mappings
+
+![](Mod3Task5Pic22.png)
+
+Click **FINISH** button to complete the Storage Policy Mappings.
+
+### **Placeholder Datastores**
+
+For this exercise there's no need to create a Placeholder Datastore. If there's no Placeholder Datastore, you are free to go and create one, just select the **vsanDatastore**.
 
