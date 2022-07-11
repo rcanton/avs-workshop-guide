@@ -107,7 +107,7 @@ Click **FINISH** to complete the creation of your Protection Group.
 
 Click **FINISH** to complete the configuration of the replication for the VM.
 
-### **Exercise 3: Recovery Plans
+### **Exercise 3: Recovery Plans**
 
 #### Step 1: Name and Direction for Recovery Plan
 
