@@ -1,28 +1,37 @@
 ---
 title: "Module 3 Task 9"
-linkTitle: "Task 9: Protect VM"
+linkTitle: "Task 9: Reprotection of Recovered VM"
 weight: 10
 
 description: >
   Task 9: Reprotect the Migrated VM
 ---
 
+## **Reprotection of Recovered VM**
 
-In this task, we assume that the primary site has been brought back online.
-Reprotection is the SRM feature that allows migrated VMs in the recovery site to
-be synchronized back to the protected site.
+In this task, we assume that the primary site has been brought back online. Reprotection is the SRM feature that allows migrated VMs in the recovery site to be synchronized back to the protected site.
 
-In the recovery site’s SRM console, select your recovery plan. Click on **…** in
-the actions bar to display additional available actions and select **Reprotect**.
+### **Exercise 1: Reprotect VM**
 
-![](c96a72b031fb253eaebbd5411b753087.png)
+#### Step 1: Execute Recovery Plan Reprotection
 
-Follow the steps in the wizard.
+![](Mod3Task9Pic1.png)
 
-![](be2996bb8d802698d382c1e754a3b82c.png)
+1. Remember that your primary (Protected) site was assumed to be offline. You will need to login to it now that it's back up, so clcik the **LOGIN** button and enter the credentials for your protected site.
+2. Go to **Recovery Plans**.
+3. Select your recovery plan.
+4. Click the 3 dots.
+5. Click **Reprotect**.
 
-Monitor progress. When the reprotection process completes, go to the protected
-site’s vCenter and confirm that a placeholder VM has been created.
+#### Step 2: Reprotect Confirmation Options
 
-![](6815bce344efb0679d96364e908a62e8.png)
+![](Mod3Task9Pic2.png)
 
+1. Ensure the checkbox is checked for **I understand that this operation cannot be undone.**
+2. Click **NEXT**, then click **FINISH**.
+
+#### Step 3: Confirm Successful Reprotection
+
+![](Mod3Task9Pic3.png)
+
+Go to the protected site’s vCenter Server and confirm that a placeholder VM has been created. Because your VM in the Recovery site is ahead of the original VM on premises, roles have been reversed and the VM in the Recovery site is being replicated to the Protected (primary) site.
