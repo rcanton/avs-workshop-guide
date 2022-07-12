@@ -11,7 +11,7 @@ description: >
 
 In this task you will execute the recovery plan you configured in the previous tasks. For planned migrations, a recovery plan can be run from either the primary or the protected site. In case of an actual disaster at the protected site, it must be triggered from the recovery site (the only one that is still online). The steps to run a recovery plan are the same in both cases. In this task, we will run a recovery plan from the recovery site to simulate a disaster recovery scenario.
 
-### **Exercise 1: Run Recovery Plan from Recovery Site
+### **Exercise 1: Run Recovery Plan from Recovery Site**
 
 #### Step 1: Access Site Recovery in Recovery Site
 
