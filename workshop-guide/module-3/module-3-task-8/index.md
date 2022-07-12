@@ -7,50 +7,50 @@ description: >
  Task 8: Run Recovery Plan
 ---
 
-# Task 8: Run Recovery Plan
+## **Run Failover Recovery Plan**
 
-In this task you will execute the recovery plan you configured in the previous
-tasks. For planned migrations, a recovery plan can be run from either the
-primary or the protected site. In case of an actual disaster at the protected
-site, it must be triggered from the recovery site (the only one that is still
-online). The steps to run a recovery plan are the same in both cases. In this
-task, we will run a recovery plan from the recovery site to simulate a disaster
-recovery scenario.
+In this task you will execute the recovery plan you configured in the previous tasks. For planned migrations, a recovery plan can be run from either the primary or the protected site. In case of an actual disaster at the protected site, it must be triggered from the recovery site (the only one that is still online). The steps to run a recovery plan are the same in both cases. In this task, we will run a recovery plan from the recovery site to simulate a disaster recovery scenario.
 
-Log into the recovery site’s vCenter, select **Site Recovery** from the main menu
-and then click on the **OPEN SITE RECOVERY** button.
+### **Exercise 1: Run Recovery Plan from Recovery Site
 
-![](6298644b3c2ce6c468bcb7180c3c242b.png)
+#### Step 1: Access Site Recovery in Recovery Site
 
-In the SRM console, open the already configured site pair by clicking on the
-**VIEW DETAILS** button.
+![](Mod3Task8Pic1.png)
 
-![](72c14be77e2a9704bb8bf532fbfde88d.png)
+1. Log into the recovery site’s vCenter Server, click the menu bar.
+2. Select **Site Recovery** from the main menu.
+3. Click on the **OPEN SITE RECOVERY** button.
 
-When prompted for the credentials to log into the protected site, click on the
-**CANCEL** button – we are assuming that the protected site is no longer online,
-because of a disaster.
+![](Mod3Task8Pic1.png)
 
-Select **Recovery Plans** tab, select the recovery plan defined in the previous
-tasks and click on the **RUN** button.
+In the SRM console, open the already configured site pair by clicking on the **VIEW DETAILS** button.
 
-![](e4f9251addacb0419bf6a1b68d22b433.png)
+#### Step 2: Run Recovery Plan
 
-Follow the steps in the wizard. Select **Disaster recovery** as the recovery type.
+![](Mod3Task8Pic3.png)
 
-![](983099f790d5c5fbc6f6ead4ce7797a9.png)
+When prompted for the credentials to log into the protected site, click on the **CANCEL** button – we are assuming that the protected site is no longer online, because of a disaster.
 
-Monitor progress in the SRM console.
+1. Click on **Recovery Plans**.
+2. Select the Recovery Plan you previously created.
+3. Click **RUN**.
 
-![](29fe754125734784267785cdc277877b.png)
+#### Step 3: Confirm Options for Recovery Plan
 
-When the recovery process is marked complete, go to the recovery site’s vCenter
-and verify that the test VM GX-SRM-VM1 is powered on and attached to the
-**SRM-LAB-RECOVERY-GROUP-XY** network segment.
+![](Mod3Task8Pic4.png)
 
-![](f68b43883ab5bc938e33ddac1c96f63d.png)
+1. Click the checkbox that reads **I understand that this process will permanently alter the virtual machines and infrastructure of both the protected and recovery datacenters.**
+2. Select **Disaster recovery**.
+3. Click **NEXT**, then click **FINISH**.
 
-Confirm that the VM migrated to the recovery site is functional by pinging it
-from your jump-box. The VM’s IP address is shown in vCenter (it might be not the
-same as the one shown in the screenshots).
+#### Step 4: Monitor Recovery until Completion
 
+![](Mod3Task8Pic5.png)
+
+Monitor progress in the SRM console until it shows **Recovery complete**. Also note the **Reprotect needed** label.
+
+#### Step 5: Confirm Recovery
+
+![](Mod3Task8Pic5.png)
+
+When the recovery process is marked complete, go to the recovery site’s vCenter Server and verify that the test VM you created earlier is powered on (1) and attached to the network segment also created earlier (2).
