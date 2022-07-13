@@ -29,7 +29,7 @@ description: >
 
 > It takes about an hour to complete the deployment of all components. This deployment only must occur once to support all future public IPs for this Azure VMware Solution environment.
 
-### Step 3: Confirm Successful Deployment
+#### Step 3: Confirm Successful Deployment
 
 ![](Mod4Task1Pic3.png)
 
