@@ -9,7 +9,7 @@ description: >
 
 ## **Public IP for vWAN**
 
-### ***Exercise 1: Configure vWAN in AVS Private Cloud**
+### **Exercise 1: Configure vWAN in AVS Private Cloud**
 
 #### Step 1: Configure Public IP for vWAN
 
