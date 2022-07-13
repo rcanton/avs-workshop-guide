@@ -7,32 +7,31 @@ description: >
   Module 4:  Deploy Virtual WAN
 ---
 
+## **Public IP for vWAN**
 
-1.  Sign into the Azure portal and then search for and select Azure VMware
-    Solution.
+### ***Exercise 1: Configure vWAN in AVS Private Cloud**
 
-2.  Select the Azure VMware Solution private cloud.
+#### Step 1: Configure Public IP for vWAN
 
-3.  Under Manage, select Connectivity.
+![](Mod4Task1Pic1.png)
 
-4.  Select the Public IP tab and then select Configure.
+1. In the Azure portal, in your AVS Private Cloud blade, click **Connectivity**.
+2. Click **Public IP for vWAN**.
+3. Click **Configure**.
 
-    ![](940de2ea4f975fdd88235093f29267f1.png)
+#### Step 2: Create Public IP Connection
 
-5.  Accept the default values, modify the Virtual hub address block and Number
-    of Public Ips fields. Select Create.
+![](Mod4Task1Pic2.png)
 
-    | Field                         | Value                                                                                                                 |
-    |-------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-    | Virtual WAN resource group    | Auto-populated and can not be modified in the poral                                                                   |
-    | Virtual WAN name              | Leave default auto-populated                                                                                          |
-    | Virtual hub address block     | Use the following value 10.**XY**.4.0/24 to avoid conflict with other networks used in this training |
-    | Number of public IPs (1-100): | 1                                                                                                                     |
+1. **Virtual wide area network resource group** is auto-populated and cannot be modified in the portal.
+2. **Virtual wide area network name** is also auto-populated.
+3. **Virtual hub address block** - Use the following value: 10.**XY**.4.0/24, where **X** is your group number and **Y** is your participant number.
 
-    ![](6295fbcd7f543b20d04c2dbdfb5bf43e.png)
+> It takes about an hour to complete the deployment of all components. This deployment only must occur once to support all future public IPs for this Azure VMware Solution environment.
 
-    It takes about one hour to complete the deployment of all components. This
-    deployment only must occur once to support all future public IPs for this Azure
-    VMware Solution environment.
+### Step 3: Confirm Successful Deployment
 
-    ![](7edc575f5739614c0749fc11eefb53c4.png)
+![](Mod4Task1Pic3.png)
+
+Ensure your deployment succeeds.
+
