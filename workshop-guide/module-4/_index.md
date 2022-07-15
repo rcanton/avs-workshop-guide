@@ -22,7 +22,7 @@ In this section you will learn how to:
 
 -   Configure Azure Firewall
 
-![](e9b7bd3e015aa202ea6169f446d49e2c.png)
+![](Mod4MainPic1.png)
 
 Before we start the steps, let’s validate if the AVS VMs can access internet. In
 the previous section, you accessed VM1 from the vCenter portal. Verify that from
