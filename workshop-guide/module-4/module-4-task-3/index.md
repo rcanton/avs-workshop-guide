@@ -7,66 +7,77 @@ description: >
   Task 3: Configure Azure Firewall policies
 ---
 
+## **Azure Firewall Policies**
 
-Once Azure vWAN is configured, you will see both Azure Firewall
+### **Exercise 1: Azure Firewall Policies**
 
-![](1338fdc5a5507051b303c08de98504a5.png)
+#### Step 1: Navigate to Azure Firewall
 
-1.  In the Azure portal, search for and select **Firewall**.
+![](Mod4Task3Pic1.png)
 
-2.  Select a deployed firewall and then select **Visit Azure Firewall Manager to
-    configure and manage this firewall**.
+1. In the Azure Portal search bar type **Firewalls**.
+2. Click **Firewalls**.
 
-    ![](9b093e8d6f2f8db7b6be11023942a1d4.png)
+#### Step 2: Select your Virtual WAN Firewall
 
-3.  Select **Azure Firewall Policies** and then select **Create Azure Firewall Policy**.
-    ![](a0cd005269a3e269268bd4a82eb056bd.png)
+![](Mod4Task3Pic1.png)
 
-4.  Under the **Basics** tab, provide the required details.
+Select your virtual WAN Firewall that should have been automatically created after the previous task.
 
-    | Field          | Value                        |
-    |----------------|------------------------------|
-    | Subscription   | Auto-populated               |
-    | Resource Group | Leave default auto-populated |
-    | Name           | “Internet Enabled”           |
-    | Region         | Pre-Populated                |
-    | Policy Tier    | Standard                     |
-    | Parent Policy  | None                         |
+#### Step 3: Azure Firewall Manager
 
-5.  Select Next: DNS Settings.
+![](Mod4Task3Pic3.png)
 
-6.  Under the **DNS** tab, select **Enable**. For **DNS Servers** Select the
-    Default (Azure provided). For the **DNS Proxy** select **Enabled**
+1. Click **Firewall Manager**.
+2. Click to **Visit Azure Firewall Manager to configure and manage this firewall**.
 
-    ![](4b4d9977a47254264b7f9423b9c256e5.png)
+#### Step 4: Access Azure Firewall Policies
 
-7.  and then select Next: **Rules**.
+![](Mod4Task3Pic4.png)
 
-4.  Select **Add a rule collection**, provide the below details, and select Add.
+1. Click **Azure Firewall Policies**.
+2. Click **+ Create Azure Firewall Policy**.
 
+#### Step 5: Firewall Policies Basics Tab
 
-    | Field                  | Value                                    |
-    |------------------------|------------------------------------------|
-    | Name                   | “Internet Outbound Enabled”              |
-    | Rule collection type   |  Network                                 |
-    | Priority               | Select a numeric value between 100-65000 |
-    | Rule collection action | Allow                                    |
-    | Rule collection group  | Pre-populated                            |
-    | Name of Rule           | Optional                                 |
-    | Source Type            | IPaddress                                |
-    | Source                 | \*                                       |
-    | Protocol               | TCP                                      |
-    | Destination port       | 80,443                                   |
-    | Destination Type       | IP Address                               |
-    | Destination            | \*                                       |
+![](Mod4Task3Pic5.png)
 
-![](ab61733e496d70a297bd8ca5823ee425.png)
+1. Ensure you're in the **Basics** tab.
+2. Leave the defaults for **Subscription** and **Resource group**.
+3. Give your policy a name: InternetEnabled**XY**, where **X** is your group number and **Y** is your participant number.
+4. Ensure to select your appropriate **Region**.
+5. For **Policy tier** select **Standard**.
+6. For **Parent policy** select **None**.
 
-10.  Select Next: **Tags**.
+#### Step 6: Firewall Policies DNS Settings Tab
 
-12.  (Optional) Create name and value pairs to categorize your resources.
+![](Mod4Task3Pic6.png)
 
-13.  Select Next: **Review** + **create** and then select **Create**.
+1. Click **DNS Settings** tab.
+2. Select **Enabled** for DNS settings.
+3. For **DNS Servers** ensure **Default (Azure provided)** is selected.
+4. For **DNS Proxy** select **Enabled**.
 
-Log back into vCenter and retest VM1’s internet connectivity
+#### Step 7: Firewall Policies Rules Tab
 
+![](Mod4Task3Pic7.png)
+
+1. Select **Rules** tab.
+2. Click **+ Add a rule collection**.
+
+#### Step 8: Add a Rule Collection
+
+![](Mod4Task3Pic8.png)
+
+1. Give the rule collection a name: InternetOuboundEnabled-**XY**, where **X** is your group number and **Y** is your participant number.
+2. For **Rule collection type** select **Network**.
+3. Give the rule collection a **Priority** - Should be a numeric valued between 100-65000.
+4. For **Rule collection action** select **Allow**.
+5. Leave the default for **Rule collection group**.
+6. Use the following values for your **Rule**.
+
+| Name | Source type | Source | Protocol | Destination Ports | Destination Type | Destination |
+| :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| Rule1-XY | IP Address | \* | TCP | 80,443 | IP Address| \* |
+
+Click **Review + Create** and then the **Create** button.
